@@ -1,6 +1,8 @@
 #include <stdio.h>
-// #include <produto.h>
+#include "produto.h"
+// #inclusw "data.h"
 
+//Função cadastrar
 //Função Busca
 //Abri, alterar e salvar arquivo
 //Ordenar datas de validades
@@ -10,13 +12,33 @@
 //Função carrinho
 
 int main () {
-int op, op_f, op_c, cad;
 
-printf("\n\n\t\t\t\t SUPERMERCADO \n\n\n");
-printf("MENU\n\n1 - Funcionário\n2 - Cliente\n3 - Sair\n\nOpção: ");
-scanf("%d",&op);
-switch ( op ) {
-    case 1:
+    FILE *bd;
+    Produto prod;
+    Data mes;
+    bd = fopen ("bd.txt", "w");
+    mes = data_novo (2013, 12, 1);
+    prod = produto_novo ("Mouse", "Eletronico", 1300, 34.20, 500, "Microsoft", "Mouse sem fio",
+                          mes, 2, 5);
+    printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod.nome, prod.categoria, prod.codigo, prod.preco,
+                                                             prod.quantidade, prod.fabricante, prod.descricao,
+                                                             prod.validade.ano, prod.validade.mes,
+                                                             prod.validade.dia, prod.corredor, prod.prateleira);                                                      ;
+    // printf("%i/%i/%i\n", mes.ano, mes.mes, mes.dia);
+    produto_salvar(prod, bd);
+    printf ("Rodando\n");
+
+    return 0;
+}
+
+/*int main () {
+    int op, op_f, op_c, cad;
+
+    printf("\n\n\t\t\t\t SUPERMERCADO \n\n\n");
+    printf("MENU\n\n1 - Funcionário\n2 - Cliente\n3 - Sair\n\nOpção: ");
+    scanf("%d",&op);
+    switch ( op ) {
+        case 1:
         {
         	printf("MENU\n\n1 - Buscar produto\n2 - Repor estoque\n3 - Cadastrar novos produtos\n4 - Sair\n\nOpção: ");
         	scanf ("%d", &op_f);
@@ -43,7 +65,7 @@ switch ( op ) {
                 	break;
                 }
         }
-    case 2:
+        case 2:
         {
             printf("MENU\n\n1 - Buscar produto\n2 - Carrinho de compras\n3 - Sair\n\nOpção: ");
             scanf ("%d", &op_c);
@@ -55,11 +77,12 @@ switch ( op ) {
             	} else {
             		break;
             	}
-            }
-    case 3:
+        }
+        case 3:
         {
             break;
         }
 
-return 0;
-}
+    return 0;
+}*/
+
