@@ -1,7 +1,7 @@
-struct Estoque {
+struct _estoque {
     int qtd_produtos = 0;
     Produto *produtos;
 };
 
-typedef struct Estoque _estoque;
+typedef struct _estoque Estoque;
 
