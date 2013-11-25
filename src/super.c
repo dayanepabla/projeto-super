@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "produto.h"
-// #inclusw "data.h"
+// #include "produto.h"
+#include "estoque.h"
+// #include "data.h"
 
 //Função cadastrar
 //Função Busca
@@ -13,19 +14,38 @@
 
 int main () {
 
-    FILE *bd;
-    Produto prod;
+    // FILE *bd;
+    Produto prod, prod1;
     Data mes;
-    bd = fopen ("bd.txt", "w");
+    Estoque nov_est;
+    // bd = fopen ("bd.txt", "w");
+
     mes = data_novo (2013, 12, 1);
+
     prod = produto_novo ("Mouse", "Eletronico", 1300, 34.20, 500, "Microsoft", "Mouse sem fio",
                           mes, 2, 5);
-    printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod.nome, prod.categoria, prod.codigo, prod.preco,
-                                                             prod.quantidade, prod.fabricante, prod.descricao,
-                                                             prod.validade.ano, prod.validade.mes,
-                                                             prod.validade.dia, prod.corredor, prod.prateleira);                                                      ;
-    // printf("%i/%i/%i\n", mes.ano, mes.mes, mes.dia);
-    produto_salvar(prod, bd);
+    prod1 = produto_novo ("Teclado", "Eletronico", 1300, 34.20, 500, "Microsoft", "Mouse sem fio",
+                          mes, 2, 5);
+
+    Produto produtos[] = { prod, prod1 };
+
+    nov_est = estoque_novo (2, produtos);
+
+    Produto* result = estoque_busca_nome (nov_est, "Teclado");
+
+    if (result != NULL) {
+        printf("%s\n", result->nome);
+    }
+
+        /* code */
+
+
+    // printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod.nome, prod.categoria, prod.codigo, prod.preco,
+    //                                                          prod.quantidade, prod.fabricante, prod.descricao,
+    //                                                          prod.validade.ano, prod.validade.mes,
+    //                                                          prod.validade.dia, prod.corredor, prod.prateleira);                                                      ;
+    // // printf("%i/%i/%i\n", mes.ano, mes.mes, mes.dia);
+    // produto_salvar(prod, bd);
     printf ("Rodando\n");
 
     return 0;
