@@ -19,3 +19,8 @@ Produto* estoque_busca_nome (Estoque estoque, char *nome_produto) {
 
     return NULL;
 }
+
+void estoque_add_produto (Estoque *estoque, Produto *produto) {
+    estoque->produtos[estoque->qtd_produtos] = *produto;
+    estoque->qtd_produtos++;
+}
