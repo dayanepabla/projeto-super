@@ -9,7 +9,7 @@ struct _produto {
     int quantidade;
     char *fabricante;
     char *descricao;
-    Data validade;
+    Data* validade;
     int corredor;
     int prateleira;
 
@@ -21,7 +21,7 @@ typedef struct _produto Produto;
  * Retorna um objeto do tipo produto.
  */
 Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int quantidade,
-                     char *fabricante, char *descricao, Data validade, int corredor,
+                     char *fabricante, char *descricao, Data* validade, int corredor,
                      int prateleira);
 
 /*

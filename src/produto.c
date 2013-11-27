@@ -1,7 +1,8 @@
 #include "produto.h"
+#include <stdlib.h>
 
 Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int quantidade,
-                       char *fabricante, char *descricao, Data validade, int corredor, int prateleira){
+                       char *fabricante, char *descricao, Data* validade, int corredor, int prateleira){
 
     Produto *novo_produto;
 
@@ -38,5 +39,5 @@ int produto_salvar (Produto *prod, FILE *bd) {
     fprintf(bd, "corredor: %i\n", prod->corredor);
     fprintf(bd, "prateleira: %i\n", prod->prateleira);
 
-    return 1->
+    return 1;
 }

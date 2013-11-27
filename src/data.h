@@ -9,4 +9,4 @@ typedef struct _data Data;
 /*
 * Retorna um objeto do tipo data.
 */
-Data data_novo(int ano, int mes, int dia);
+Data* data_novo(int ano, int mes, int dia);
