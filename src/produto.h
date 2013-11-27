@@ -18,13 +18,13 @@ struct _produto {
 typedef struct _produto Produto;
 
 /*
- * Salva um produto no banco de dados.
- */
-int produto_salvar (Produto prod, FILE *bd);
-
-/*
  * Retorna um objeto do tipo produto.
  */
-Produto produto_novo(char *nome, char *categoria, int codigo, float preco, int quantidade,
+Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int quantidade,
                      char *fabricante, char *descricao, Data validade, int corredor,
                      int prateleira);
+
+/*
+ * Salva um produto no banco de dados.
+ */
+int produto_salvar (Produto *prod, FILE *bd);
