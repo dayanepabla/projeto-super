@@ -1,3 +1,5 @@
+#define ESTOQUE_MAX_SIZE 100
+
 struct _estoque {
     int qtd_produtos;
     Produto *produtos;
