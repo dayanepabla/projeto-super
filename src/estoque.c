@@ -1,16 +1,11 @@
 #include "estoque.h"
 #include <stdlib.h>
 
-Estoque estoque_novo (int qtd_produtos, Produto *produtos) {
-    Estoque novo_estoque;
-// Tamanho máximo do estoque.
-int ESTOQUE_MAX_SIZE = 1000;
 
-    novo_estoque.qtd_produtos = qtd_produtos;
-    novo_estoque.produtos = produtos;
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
     Estoque *novo_estoque;
-
+// Tamanho máximo do estoque.
+    int ESTOQUE_MAX_SIZE = 1000;
     if (produtos == NULL) {
         produtos = (Produto *) malloc(ESTOQUE_MAX_SIZE*sizeof(Produto));
     }
