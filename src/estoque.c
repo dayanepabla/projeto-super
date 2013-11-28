@@ -40,6 +40,7 @@ void estoque_listar (Estoque *estoque){
        produto_listar (&estoque->produtos[i]);
     }
 }
+
 int estoque_salvar (Estoque *estoque,FILE *bd) {
     int i;
 
@@ -50,4 +51,14 @@ int estoque_salvar (Estoque *estoque,FILE *bd) {
             return -1
     }
     return 1;
+}
+
+void estoque_baixo (Estoque *estoque, int qtd) {
+
+    int i;
+
+    for (i = 0;i < estoque->qtd_produtos; i++) {
+        if (estoque->produtos[i].quantidade <= qtd)
+            produto_listar(&estoque->produtos[i]);
+    }
 }
