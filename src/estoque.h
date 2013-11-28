@@ -1,4 +1,5 @@
 #include "produto.h"
+
 #define ESTOQUE_MAX_SIZE 100
 
 struct _estoque {

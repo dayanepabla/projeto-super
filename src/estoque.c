@@ -16,7 +16,7 @@ Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
     return novo_estoque;
 }
 
-Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
+Produto* estoque_busca_nome (Estoque *estoque, char *nome_produto) {
     int i;
 
     for (i = 0; i < estoque->qtd_produtos; i++) {
@@ -25,7 +25,7 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
     }
 
     return NULL;
-    }
+}
 
 void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
