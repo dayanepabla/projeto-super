@@ -34,3 +34,9 @@ void estoque_listar (Estoque *estoque);
  * Retorna 1 se estiver tudo certo, -1 caso contrário.
  */
 int estoque_salvar (Estoque *estoque, FILE *bd);
+
+/*
+ * Lista produtos com estoque baixo.
+ * qtd define a quantidade máxima de produtos em estoque.
+ */
+void estoque_baixo (Estoque *estoque, int qtd);
