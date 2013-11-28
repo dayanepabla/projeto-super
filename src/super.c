@@ -11,10 +11,8 @@ int main () {
     mes = data_novo (2013, 12, 1);
     prod = produto_novo ("Mouse", "Eletronico", 1300, 34.20, 500, "Microsoft", "Mouse sem fio",
                           mes, 2, 5);
-    printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod->nome, prod->categoria, prod->codigo, prod->preco,
-                                                             prod->quantidade, prod->fabricante, prod->descricao,
-                                                             prod->validade->ano, prod->validade->mes,
-                                                             prod->validade->dia, prod->corredor, prod->prateleira);                                                      ;
+
+    produto_listar (prod);                                                                    ;
     // printf("%i/%i/%i\n", mes.ano, mes.mes, mes.dia);
     produto_salvar(prod, bd);
     printf ("Rodando\n");

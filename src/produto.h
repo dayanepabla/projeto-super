@@ -28,3 +28,9 @@ Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int 
  * Salva um produto no banco de dados.
  */
 int produto_salvar (Produto *prod, FILE *bd);
+
+/*
+ * Imorime produto.
+ */
+
+void produto_listar (Produto *prod);

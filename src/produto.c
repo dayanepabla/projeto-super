@@ -41,3 +41,11 @@ int produto_salvar (Produto *prod, FILE *bd) {
 
     return 1;
 }
+
+void produto_listar (Produto *prod) {
+
+    printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod->nome, prod->categoria, prod->codigo, prod->preco,
+                                                             prod->quantidade, prod->fabricante, prod->descricao,
+                                                             prod->validade->ano, prod->validade->mes,
+                                                             prod->validade->dia, prod->corredor, prod->prateleira);                                                      ;
+}
