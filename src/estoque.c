@@ -65,3 +65,12 @@ void estoque_baixo (Estoque *estoque, int qtd) {
             produto_listar(&estoque->produtos[i]);
     }
 }
+
+/*void estoque_validade (Estoque *estoque, Data *data) {
+    int i;
+
+    for (i = 0; i < estoque->qtd_produtos; i++){
+        if (estoque->produtos[i].validade <= data)
+            produto_listar(&estoque->produtos[i]);
+    }
+}*/
