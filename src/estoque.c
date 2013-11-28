@@ -31,3 +31,12 @@ void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
     estoque->qtd_produtos++;
   }
+
+void estoque_listar (Estoque *estoque){
+
+    int i;
+
+    for (i = 0; i < estoque->qtd_produtos; i++) {
+       produto_listar (&estoque->produtos[i]);
+    }
+}

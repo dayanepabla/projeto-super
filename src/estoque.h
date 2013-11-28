@@ -21,4 +21,9 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
 /*
  * Adiciona um novo produto ao estoque.
  */
- void estoque_add_produto (Estoque *estoque, Produto *produto);
+void estoque_add_produto (Estoque *estoque, Produto *produto);
+
+/*
+ * Salva produtos do estoque no banco de dados.
+ */
+void estoque_listar (Estoque *estoque);
