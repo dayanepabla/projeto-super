@@ -30,7 +30,7 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
 void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
     estoque->qtd_produtos++;
-  }
+}
 
 void estoque_listar (Estoque *estoque){
 
@@ -39,4 +39,19 @@ void estoque_listar (Estoque *estoque){
     for (i = 0; i < estoque->qtd_produtos; i++) {
        produto_listar (&estoque->produtos[i]);
     }
+}
+
+int estoque_salvar (Estoque *estoque, FILE *bd) {
+
+    int i;
+
+    if (bd == NULL)
+        return -1;
+
+    for (i = 0; i < estoque->qtd_produtos; i++){
+        if (produto_salvar (&estoque->produtos[i], bd) == -1)
+            return -1;
+    }
+
+    return 1;
 }
