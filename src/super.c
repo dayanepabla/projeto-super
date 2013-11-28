@@ -1,22 +1,36 @@
 #include <stdio.h>
-//#include "estoque.h"
-#include "produto.h"
+#include "estoque.h"
+//#include "produto.h"
 
 int main () {
 
     FILE *bd;
-    Produto *prod;
-    Data *mes;
+    Produto *prod, *prod1;
+    Data *data;
+    Estoque estoque;
+
+    estoque = estoque_novo(0,NULL);
     bd = fopen ("bd.txt", "w");
     mes = data_novo (2013, 12, 1);
     prod = produto_novo ("Mouse", "Eletronico", 1300, 34.20, 500, "Microsoft", "Mouse sem fio",
-                          mes, 2, 5);
+                          data, 2, 5);
+    prod1 = produto_novo ("Teclada", "Eletronico", 1301, 84.20, 400, "Positivo", "Teclado sem fio",
+                          data, 2, 5);
 
-    produto_listar (prod);                                                                    ;
+/*    produto_listar (prod);                                                                    ;
     // printf("%i/%i/%i\n", mes.ano, mes.mes, mes.dia);
     produto_salvar(prod, bd);
-    printf ("Rodando\n");
+    printf ("Rodando\n");*/
+    estoque_listar(estoque);
+    estoque_add_produto (estoque, prod);
+    estoque_add_produto (estoque, prod1);
+    estoque_listar (estoque);
+    estoque_salvar (estoque, bd);
 
+ +    ///produto_listar (prod);                                                                    ;
+ +    // printf("%i/%i/%i\n", data.ano, data.mes, data.dia);
+ +    //produto_salvar(prod, bd);
+ +    //printf ("Rodando\n");
  /*   Estoque *estoque;
     char *nome, *categoria, *fabricante, *descricao;
     int codigo, quantidade, corredor, prateleira;

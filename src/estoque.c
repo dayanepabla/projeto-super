@@ -40,3 +40,14 @@ void estoque_listar (Estoque *estoque){
        produto_listar (&estoque->produtos[i]);
     }
 }
+int estoque_salvar (Estoque *estoque,FILE *bd) {
+    int i;
+
+    if (bd == NULL)
+        return -1;
+    for (i = 0; i < estoque->qtd_produtos; i++){
+        if (produto_salvar (&estoque->produtos[i], bd) == -1)
+            return -1
+    }
+    return 1;
+}

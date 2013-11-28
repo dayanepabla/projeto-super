@@ -37,7 +37,7 @@ int produto_salvar (Produto *prod, FILE *bd) {
     fprintf(bd, "descricao: %s\n", prod->descricao);
     fprintf(bd, "validade: %i/%i/%i\n", prod->validade->ano, prod->validade->mes, prod->validade->dia);
     fprintf(bd, "corredor: %i\n", prod->corredor);
-    fprintf(bd, "prateleira: %i\n", prod->prateleira);
+    fprintf(bd, "prateleira: %i\n\n", prod->prateleira);
 
     return 1;
 }
