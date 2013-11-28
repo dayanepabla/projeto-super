@@ -41,3 +41,8 @@ int estoque_salvar (Estoque *estoque, FILE *bd);
  * qtd define a quantidade máxima de produtos em estoque.
  */
 void estoque_baixo (Estoque *estoque, int qtd);
+
+/*
+ * Lista produtos com a data de validade próxima.
+ */
+void estoque_validade (Estoque *estoque, Data *data);

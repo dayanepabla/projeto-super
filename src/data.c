@@ -11,3 +11,7 @@ Data* data_novo(int ano, int mes, int dia){
 
     return nova_data;
  }
+
+/*Data* data_atual() {
+    return data_novo(2013,12,30);
+}*/
