@@ -1,5 +1,6 @@
 SOURCES=src/super.c src/produto.h src/produto.h src/produto.c src/data.h src/data.c\
-		src/estoque.c src/estoque.h
+		src/estoque.c src/estoque.h src/carrinho.c src/carrinho.h
+
 CFLAGS=-Wall
 
 all:

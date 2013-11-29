@@ -10,8 +10,8 @@ struct _estoque {
 typedef struct _estoque Estoque;
 
 /*
- * Inicializa um produto. Se produtos for NULL inicializa
- * uma lista de tamanho ESTOQUE_MAX_ SIZE.
+ * Inicializa um produto.
+ * Se produtos for NULL inicializa uma lista de tamanho ESTOQUE_MAX_SIZE.
  */
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos);
 
@@ -31,7 +31,8 @@ void estoque_add_produto (Estoque *estoque, Produto *produto);
 void estoque_listar (Estoque *estoque);
 
 /*
- * Salvar o estoque no banco de dados.
+ * Salva o estoque no banco de dados.
+ *
  * Retorna 1 se estiver tudo certo, -1 caso contrário.
  */
 int estoque_salvar (Estoque *estoque, FILE *bd);

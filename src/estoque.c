@@ -42,7 +42,6 @@ void estoque_listar (Estoque *estoque){
 }
 
 int estoque_salvar (Estoque *estoque, FILE *bd) {
-
     int i;
 
     if (bd == NULL)
@@ -66,11 +65,11 @@ void estoque_baixo (Estoque *estoque, int qtd) {
     }
 }
 
-/*void estoque_validade (Estoque *estoque, Data *data) {
-    int i;
+// void estoque_validade (Estoque *estoque, Data *data) {
+//     int i;
 
-    for (i = 0; i < estoque->qtd_produtos; i++){
-        if (estoque->produtos[i].validade <= data)
-            produto_listar(&estoque->produtos[i]);
-    }
-}*/
+//     for (i = 0; i < estoque->qtd_produtos; i++){
+//         if (estoque->produtos[i].validade <= data)
+//             produto_listar(&estoque->produtos[i]);
+//     }
+// }
