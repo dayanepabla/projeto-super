@@ -35,3 +35,17 @@ void carrinho_listar (Carrinho *carrinho) {
         produto_listar (&carrinho->produtos[i]);
     }
 }
+
+float carrinho_subtotal (Carrinho *carrinho){
+    int i;
+    Produto *prod;
+    float subtotal = 0.0;
+
+    for (i = 0; i < carrinho->qtd_produtos; i++) {
+        prod = &carrinho->produtos[i];
+
+        subtotal += (prod->preco * prod->quantidade);
+    }
+
+    return subtotal;
+}
