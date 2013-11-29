@@ -13,9 +13,11 @@ int main () {
 
     estoque_add_produto (estoque, prod);
 
-    printf("%d\n", estoque_cheio (estoque));
+    // printf("%d\n", estoque_cheio (estoque));
+    estoque_repor (estoque, 1300, data_novo(2014, 01, 01), 10);
 
-    produto_listar (estoque_busca_fabricante (estoque, "Micr osoft"));
+    estoque_listar(estoque);
+    // produto_listar (estoque_busca_fabricante (estoque, "Micr osoft"));
 
     return 0;
 }

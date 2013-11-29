@@ -1,5 +1,6 @@
 #include "estoque.h"
 #include <stdlib.h>
+#include <assert.h>
 
 
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
@@ -25,6 +26,17 @@ Produto* estoque_busca_nome (Estoque *estoque, char *nome_produto) {
 
     for (i = 0; i < estoque->qtd_produtos; i++) {
         if (estoque->produtos[i].nome == nome_produto)
+            return &estoque->produtos[i];
+    }
+
+    return NULL;
+}
+
+Produto* estoque_busca_codigo (Estoque *estoque, int codigo) {
+    int i;
+
+    for (i = 0; i < estoque->qtd_produtos; i++) {
+        if (estoque->produtos[i].codigo == codigo)
             return &estoque->produtos[i];
     }
 
@@ -78,6 +90,15 @@ void estoque_baixo (Estoque *estoque, int qtd) {
         if (estoque->produtos[i].quantidade <= qtd)
             produto_listar(&estoque->produtos[i]);
     }
+}
+
+void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd) {
+    Produto *prod = estoque_busca_codigo(estoque, codigo);
+
+    assert (prod != NULL);
+
+    prod->quantidade += qtd;
+    prod->validade = validade;
 }
 
 // void estoque_validade (Estoque *estoque, Data *data) {
