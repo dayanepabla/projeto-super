@@ -1,21 +1,21 @@
 #include <stdio.h>
-#include "carrinho.h"
+#include "estoque.h"
 
 int main () {
     Data *data;
     Produto *prod;
-    Carrinho *carrinho;
+    Estoque *estoque;
 
     data = data_novo (2013, 12, 1);
-    carrinho = carrinho_novo (0, NULL);
+    estoque = estoque_novo (0, NULL);
     prod = produto_novo ("Mouse", "Eletronico", 1300, 34.20, 500, "Microsoft", "Mouse sem fio",
                          data, 2, 5);
 
-    carrinho_add_produto (carrinho, prod);
+    estoque_add_produto (estoque, prod);
 
-    printf("%d\n", carrinho_cheio (carrinho));
+    printf("%d\n", estoque_cheio (estoque));
 
-    carrinho_listar (carrinho);
+    produto_listar (estoque_busca_fabricante (estoque, "Micr osoft"));
 
     return 0;
 }

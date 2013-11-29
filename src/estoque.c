@@ -31,6 +31,18 @@ Produto* estoque_busca_nome (Estoque *estoque, char *nome_produto) {
     return NULL;
 }
 
+Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante) {
+    int i;
+
+    for (i = 0; i < estoque->qtd_produtos; i++) {
+        if (estoque->produtos[i].fabricante == fabricante) {
+            return &estoque->produtos[i];
+        }
+    }
+
+    return NULL;
+}
+
 void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
     estoque->qtd_produtos++;
@@ -48,8 +60,7 @@ void estoque_listar (Estoque *estoque){
 int estoque_salvar (Estoque *estoque, FILE *bd) {
     int i;
 
-    if (bd == NULL)
-        return -1;
+    assert (bd != NULL);
 
     for (i = 0; i < estoque->qtd_produtos; i++){
         if (produto_salvar (&estoque->produtos[i], bd) == -1)
