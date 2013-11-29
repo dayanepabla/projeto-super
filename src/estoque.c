@@ -16,6 +16,10 @@ Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
     return novo_estoque;
 }
 
+int estoque_cheio (Estoque *estoque) {
+    return estoque->qtd_produtos == ESTOQUE_MAX_SIZE;
+}
+
 Produto* estoque_busca_nome (Estoque *estoque, char *nome_produto) {
     int i;
 

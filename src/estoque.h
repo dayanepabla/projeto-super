@@ -16,6 +16,11 @@ typedef struct _estoque Estoque;
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos);
 
 /*
+ * Retorna TRUE caso o estoque esteja cheio e FALSE caso contrário.
+ */
+int estoque_cheio (Estoque *estoque);
+
+/*
  * Busca um produto por nome e retorna um ponteiro para o produto.
  */
 Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
