@@ -27,9 +27,11 @@ int estoque_cheio (Estoque *estoque);
  */
 Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
 
-/*
- * Adiciona um novo produto ao estoque.
+/* Busca um produto no estoque pelo código.
+ *
+ * Obs.: Assume que o campo código é único.
  */
+Produto* estoque_busca_codigo (Estoque *estoque, int codigo);
 
 /* Busca um produto no estoque, por nome do fabricante.
  *
@@ -37,6 +39,9 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
 Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante);
 
 
+/*
+ * Adiciona um novo produto ao estoque.
+ */
 void estoque_add_produto (Estoque *estoque, Produto *produto);
 
 /*
@@ -55,6 +60,11 @@ int estoque_salvar (Estoque *estoque, FILE *bd);
  * qtd define a quantidade máxima de produtos em estoque.
  */
 void estoque_baixo (Estoque *estoque, int qtd);
+
+/*
+ * Repõe um produto no estoque.
+ */
+void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd);
 
 /*
  * Lista produtos com a data de validade próxima.
