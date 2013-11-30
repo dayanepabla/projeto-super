@@ -18,5 +18,7 @@ int main () {
 
     printf("%d\n", carrinho_cheio (carrinho));
 
+    carrinho_listar (carrinho);
+
     return 0;
 }
