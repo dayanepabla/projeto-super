@@ -1,11 +1,11 @@
 #include "produto.h"
+
 #define CARRINHO_MAX_SIZE 100
 
 
 struct _carrinho {
     int qtd_produtos;
     Produto *produtos;
-
 };
 
 typedef struct _carrinho Carrinho;

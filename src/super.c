@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include "carrinho.h"
-//#include "estoque.h"
-//#include "produto.h"
 
 int main () {
 
@@ -21,6 +19,7 @@ int main () {
 
     estoque_listar(estoque);
     // produto_listar (estoque_busca_fabricante (estoque, "Micr osoft"));
+
 
     return 0;
 }

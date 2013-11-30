@@ -21,6 +21,7 @@ int estoque_cheio (Estoque *estoque) {
 }
 
 Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
+
     int i;
 
     for (i = 0; i < estoque->qtd_produtos; i++) {
@@ -29,7 +30,7 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
     }
 
     return NULL;
-    }
+}
 
 Produto* estoque_busca_codigo (Estoque *estoque, int codigo) {
     int i;
@@ -58,7 +59,7 @@ Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante) {
 void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
     estoque->qtd_produtos++;
-  }
+}
 
 void estoque_listar (Estoque *estoque){
 
@@ -69,8 +70,9 @@ void estoque_listar (Estoque *estoque){
     }
 }
 
-int estoque_salvar (Estoque *estoque,FILE *bd) {
+int estoque_salvar (Estoque *estoque, FILE *bd) {
     int i;
+
 
     assert (bd != NULL)
 
@@ -78,6 +80,7 @@ int estoque_salvar (Estoque *estoque,FILE *bd) {
         if (produto_salvar (&estoque->produtos[i], bd) == -1)
             return -1;
     }
+
     return 1;
 }
 
@@ -85,7 +88,7 @@ void estoque_baixo (Estoque *estoque, int qtd) {
 
     int i;
 
-    for (i = 0;i < estoque->qtd_produtos; i++) {
+    for (i = 0; i < estoque->qtd_produtos; i++){
         if (estoque->produtos[i].quantidade <= qtd)
             produto_listar(&estoque->produtos[i]);
     }
@@ -100,11 +103,12 @@ void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd) {
     prod->validade = validade;
 }
 
-void estoque_validade (Estoque *estoque, Data *data) {
-    int i;
 
-    for (i = 0; i < estoque->qtd_produtos; i++){
-        if (estoque->produtos[i].validade <= data)
-            produto_listar(&estoque->produtos[i]);
-    }
-}
+// void estoque_validade (Estoque *estoque, Data *data) {
+//     int i;
+
+//     for (i = 0; i < estoque->qtd_produtos; i++){
+//         if (estoque->produtos[i].validade <= data)
+//             produto_listar(&estoque->produtos[i]);
+//     }
+// }

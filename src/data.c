@@ -15,7 +15,8 @@ Data* data_novo(int ano, int mes, int dia){
 
 /*Data* data_atual() {
     return data_novo(2013,12,30);
-}*/
+}
+*/
 
 /*struct tm * local;
 time_t t;
