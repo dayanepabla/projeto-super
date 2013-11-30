@@ -16,3 +16,22 @@ typedef struct _carrinho Carrinho;
  * uma lista de tamanho CARRINHO_MAX_SIZE.
  */
 Carrinho* carrinho_novo (int qtd_produtos, Produto *produtos);
+
+/*
+ * Indica se o carrinho está cheio ou não.
+ *
+ * Retorna TRUE caso a quantidade de produtos no carrinho seja igual a
+ * CARRINHO_MAX_SIZE e FALSE caso contrário.
+ */
+
+int carrinho_cheio (Carrinho *carrinho);
+
+/*
+ * Adiciona um produto ao carrinho.
+ */
+void carrinho_add_produto (Carrinho *carrinho, Produto *prod);
+
+/*
+ * Lista os produtos do carrinho de compras.
+ */
+void carrinho_listar (Carrinho *carrinho);
