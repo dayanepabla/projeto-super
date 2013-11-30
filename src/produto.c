@@ -1,5 +1,6 @@
 #include "produto.h"
 #include <stdlib.h>
+#include <assert.h>
 
 Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int quantidade,
                        char *fabricante, char *descricao, Data* validade, int corredor, int prateleira){
@@ -24,8 +25,7 @@ Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int 
 
 int produto_salvar (Produto *prod, FILE *bd) {
 
-    if (bd == NULL)
-        return -1;
+    assert (bd != NULL);
 
     fprintf(bd, "[produto]\n");
     fprintf(bd, "nome: %s\n", prod->nome);
@@ -43,6 +43,8 @@ int produto_salvar (Produto *prod, FILE *bd) {
 }
 
 void produto_listar (Produto *prod) {
+
+    assert (prod != NULL);
 
     printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod->nome, prod->categoria, prod->codigo, prod->preco,
                                                              prod->quantidade, prod->fabricante, prod->descricao,

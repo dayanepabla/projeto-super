@@ -30,6 +30,13 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
 /*
  * Adiciona um novo produto ao estoque.
  */
+
+/* Busca um produto no estoque, por nome do fabricante.
+ *
+ */
+Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante);
+
+
 void estoque_add_produto (Estoque *estoque, Produto *produto);
 
 /*
