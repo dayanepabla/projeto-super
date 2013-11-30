@@ -35,3 +35,8 @@ void carrinho_add_produto (Carrinho *carrinho, Produto *prod);
  * Lista os produtos do carrinho de compras.
  */
 void carrinho_listar (Carrinho *carrinho);
+
+/*
+ * Retorna o subtotal dos produtos que estão no carrinho de compras.
+ */
+float carrinho_subtotal (Carrinho *carrinho);
