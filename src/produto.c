@@ -45,6 +45,8 @@ int produto_salvar (Produto *prod, FILE *bd) {
 void produto_listar (Produto *prod) {
     assert (prod != NULL);
 
+    assert (prod != NULL);
+
     printf("%s, %s, %i, %f, %i, %s, %s, %i/%i/%i, %i, %i\n", prod->nome, prod->categoria, prod->codigo, prod->preco,
                                                              prod->quantidade, prod->fabricante, prod->descricao,
                                                              prod->validade->ano, prod->validade->mes,

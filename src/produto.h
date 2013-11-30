@@ -32,5 +32,4 @@ int produto_salvar (Produto *prod, FILE *bd);
 /*
  * Imprime o produto na saída padrão.
  */
-
 void produto_listar (Produto *prod);

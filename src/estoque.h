@@ -15,6 +15,13 @@ typedef struct _estoque Estoque;
  */
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos);
 
+
+/*
+ * Retorna TRUE caso o estoque esteja cheio e FALSE caso contrário.
+ */
+int estoque_cheio (Estoque *estoque);
+
+
 /*
  * Retorna TRUE caso o estoque esteja cheio e FALSE caso contrário.
  */
@@ -24,6 +31,18 @@ int estoque_cheio (Estoque *estoque);
  * Busca um produto por nome e retorna um ponteiro para o produto.
  */
 Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
+
+/* Busca um produto no estoque pelo código.
+ *
+ * Obs.: Assume que o campo código é único.
+ */
+Produto* estoque_busca_codigo (Estoque *estoque, int codigo);
+
+/* Busca um produto no estoque, por nome do fabricante.
+ *
+ */
+Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante);
+
 
 /*
  * Busca um produto no estoque pelo código.
