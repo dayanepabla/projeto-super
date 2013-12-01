@@ -23,7 +23,6 @@ Carrinho* carrinho_novo (int qtd_produtos, Produto *produtos);
  * Retorna TRUE caso a quantidade de produtos no carrinho seja igual a
  * CARRINHO_MAX_SIZE e FALSE caso contrário.
  */
-
 int carrinho_cheio (Carrinho *carrinho);
 
 /*

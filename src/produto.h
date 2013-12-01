@@ -30,7 +30,6 @@ Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int 
 int produto_salvar (Produto *prod, FILE *bd);
 
 /*
- * Imorime produto na saída padrão.
+ * Imprime o produto na saída padrão.
  */
-
 void produto_listar (Produto *prod);

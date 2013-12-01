@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
+
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
     Estoque *novo_estoque;
 
@@ -21,7 +22,6 @@ int estoque_cheio (Estoque *estoque) {
 }
 
 Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
-
     int i;
 
     for (i = 0; i < estoque->qtd_produtos; i++) {
@@ -55,7 +55,6 @@ Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante) {
     return NULL;
 }
 
-
 void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
     estoque->qtd_produtos++;
@@ -71,10 +70,9 @@ void estoque_listar (Estoque *estoque){
 }
 
 int estoque_salvar (Estoque *estoque, FILE *bd) {
+    assert (bd != NULL);
+
     int i;
-
-
-    assert (bd != NULL)
 
     for (i = 0; i < estoque->qtd_produtos; i++){
         if (produto_salvar (&estoque->produtos[i], bd) == -1)

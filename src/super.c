@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include "carrinho.h"
+#include "estoque.h"
 
 #define BD_NAME "bd.txt"
 
@@ -38,6 +38,7 @@ void busca ();
 
 
 int main () {
+
 
     init();
     inicial ();
@@ -97,7 +98,6 @@ void funcionario () {
             printf("Opção inválida!\n");
     }
 }
-
 
 
     return 0;

@@ -43,6 +43,7 @@ int produto_salvar (Produto *prod, FILE *bd) {
 }
 
 void produto_listar (Produto *prod) {
+    assert (prod != NULL);
 
     assert (prod != NULL);
 
