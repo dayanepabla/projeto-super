@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <assert.h>
+
 #include "estoque.h"
+#include "utils.h"
 
 #define BD_NAME "bd.txt"
 
+
+FILE *bd;
 Estoque *estoque;
+
 
 /*
  * Inicialização do sistema.
@@ -38,16 +43,14 @@ void busca ();
 
 
 int main () {
-
-
     init();
     inicial ();
-    //sair ();
+    sair ();
+
     return 0;
 }
 
 void init () {
-    FILE *bd;
     bd = fopen(BD_NAME, "a");
 
     // Verifica se o arquivo abriu com sucesso.
@@ -56,11 +59,18 @@ void init () {
     estoque = estoque_novo(0, NULL);
 }
 
+void sair () {
+    limpar_terminal ();
+    printf("Encerrando aplicação... salvando produtos... saindo... até logo!\n");
+}
+
 void inicial () {
 
     int op;
 
-    printf("\t\t\tSUPERMERCADO\t\t\t\n");
+    limpar_terminal();
+
+    cabecalho("Bem vindo!");
     printf("1. Cliente\n");
     printf("2. Funcionário\n");
     printf("3. Sair\n");
@@ -76,7 +86,9 @@ void inicial () {
 void busca () {
     int op;
 
-    printf("Buscar produto\n");
+    limpar_terminal ();
+
+    cabecalho("Buscar produto");
     printf("1. Buscar por nome\n");
     printf("2. Buscar por fabricante\n");
     printf("3. Buscar por categoria\n");
@@ -96,6 +108,7 @@ void funcionario (){
     Produto* prod;
     Data* validade;
 
+    limpar_terminal ();
 
     printf("1. Buscar produto\n");
     printf("2. Repor estoque\n");
