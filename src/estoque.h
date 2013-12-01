@@ -10,7 +10,7 @@ struct _estoque {
 typedef struct _estoque Estoque;
 
 /*
- * Inicializa um produto.
+ * Inicializa um objeto Estoque.
  * Se produtos for NULL inicializa uma lista de tamanho ESTOQUE_MAX_SIZE.
  */
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos);
@@ -21,40 +21,30 @@ Estoque* estoque_novo (int qtd_produtos, Produto *produtos);
  */
 int estoque_cheio (Estoque *estoque);
 
-
 /*
- * Retorna TRUE caso o estoque esteja cheio e FALSE caso contrário.
+ * Busca um produto por nome.
  */
-int estoque_cheio (Estoque *estoque);
-
+int estoque_busca_nome (Estoque* estoque, char *nome_produto, Produto *resultados);
+Lista
 /*
- * Busca um produto por nome e retorna um ponteiro para o produto.
+ *  produtos por categoria.
  */
-Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
-
-/* Busca um produto no estoque pelo código.
- *
- * Obs.: Assume que o campo código é único.
- */
-Produto* estoque_busca_codigo (Estoque *estoque, int codigo);
-
-/* Busca um produto no estoque, por nome do fabricante.
- *
- */
-Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante);
-
+Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto);
 
 /*
  * Busca um produto no estoque pelo código.
  *
  * Obs.: Assume que o campo código é único.
+ * Retorna a quantidade de produtos encontrados. O ponteiro resultados,
+ * aponta para os resultados da busca ou é NULL caso a busca não
+ * retorne resultados.
  */
-Produto* estoque_busca_codigo (Estoque *estoque, int codigo);
+int estoque_busca_codigo (Estoque *estoque, int codigo, Produto *resultados);
 
 /*
  * Busca um produto no estoque, por nome do fabricante.
  */
-Produto* estoque_busca_fabricante (Estoque *estoque, char* fabricante);
+int estoque_busca_fabricante (Estoque *estoque, char* fabricante, Produto *resultados);
 
 /*
  * Adiciona um novo produto ao estoque.
