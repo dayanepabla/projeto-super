@@ -10,6 +10,11 @@
 void cabecalho (char *tela);
 
 /*
+ * Exibe um rodapé informativo.
+ */
+void rodape ();
+
+/*
  * Limpa o terminal, ou seja, apaga todos os caracteres existentes
  * e move o cursor para a primeira coluna da primeira linha.
  */

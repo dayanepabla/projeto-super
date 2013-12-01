@@ -3,10 +3,16 @@
 
 
 void cabecalho (char *tela) {
-    printf("\t\t\tSUPERMERCADO\t\t\t\n");
+    printf("==========================================================================\n\n");
+    printf("\t\t\t\tSUPERMERCADO\t\t\t\n");
+    printf("==========================================================================\n\n");
 
     if (tela)
-        printf("%s\n", tela);
+        printf("Você está em: %s\n\n", tela);
+}
+
+void rodape () {
+    printf("\n\nUse Control<C> para encerrar a qualquer momento.\n");
 }
 
 void limpar_terminal () {
