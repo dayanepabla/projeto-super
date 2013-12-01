@@ -102,11 +102,6 @@ void cliente (){
 
 void funcionario (){
     int op;
-    char nome[50], categoria[50], fabricante[50], descricao[50];
-    int codigo, quantidade, corredor, prateleira, dia, mes, ano;
-    float preco;
-    Produto* prod;
-    Data* validade;
 
     limpar_terminal ();
 
@@ -122,40 +117,7 @@ void funcionario (){
         case 2:
         case 3:
 
-            printf("Nome: ");
-            scanf("%s", nome);
-
-            printf("Categoria: ");
-            scanf("%s", categoria);
-
-            printf("Código: ");
-            scanf("%i", &codigo);
-
-            printf("Preço: ");
-            scanf("%f", &preco);
-
-            printf("Quantidade: ");
-            scanf("%i", &quantidade);
-
-            printf("Fabricante: ");
-            scanf("%s", fabricante);
-
-            printf("Descricao: ");
-            scanf("%s", descricao);
-
-            printf("Validade: ");
-            scanf("%i %i %i", &ano, &mes, &dia);
-
-            printf("Corredor: \n");
-            scanf("%i", &corredor);
-
-            printf("Prateleira: ");
-            scanf("%i", &prateleira);
-
-            validade = data_novo(ano, mes, dia);
-            prod = produto_novo(nome, categoria, codigo, preco, quantidade,
-                                fabricante, descricao, validade, corredor, prateleira);
-            estoque_add_produto(estoque, prod);
+            // estoque_add_produto(estoque, prod);
 
             break;
         case 4:

@@ -1,3 +1,6 @@
+#ifndef CARRINHO_H
+#define CARRINHO_H
+
 #include "produto.h"
 
 #define CARRINHO_MAX_SIZE 100
@@ -39,3 +42,5 @@ void carrinho_listar (Carrinho *carrinho);
  * Retorna o subtotal dos produtos que estão no carrinho de compras.
  */
 float carrinho_subtotal (Carrinho *carrinho);
+
+#endif

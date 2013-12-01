@@ -1,4 +1,7 @@
+#ifndef UTILS_H
+#define UTILS_H
 
+#include "produto.h"
 
 /*
  * Exibe um cabeçalho devidamente formatado. Aceita uma string
@@ -11,3 +14,10 @@ void cabecalho (char *tela);
  * e move o cursor para a primeira coluna da primeira linha.
  */
 void limpar_terminal ();
+
+/*
+ * Requisita informações de produto ao usuário e cria um novo produto.
+ */
+Produto *ler_produto ();
+
+#endif

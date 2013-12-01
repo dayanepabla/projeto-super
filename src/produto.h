@@ -1,3 +1,6 @@
+#ifndef PRODUTO_H
+#define PRODUTO_H
+
 #include <stdio.h>
 #include "data.h"
 
@@ -33,3 +36,5 @@ int produto_salvar (Produto *prod, FILE *bd);
  * Imprime o produto na saída padrão.
  */
 void produto_listar (Produto *prod);
+
+#endif

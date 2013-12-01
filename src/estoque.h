@@ -1,3 +1,6 @@
+#ifndef ESTOQUE_H
+#define ESTOQUE_H
+
 #include "produto.h"
 
 #define ESTOQUE_MAX_SIZE 100
@@ -78,3 +81,5 @@ void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd);
  * Lista produtos com a data de validade próxima.
  */
 // void estoque_validade (Estoque *estoque, Data *data);
+
+#endif

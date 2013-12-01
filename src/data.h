@@ -1,3 +1,5 @@
+#ifndef DATA_H
+#define DATA_H
 struct _data{
     int ano;
     int mes;
@@ -15,3 +17,5 @@ Data* data_novo(int ano, int mes, int dia);
  * Retorna um objeto representando a data atual.
  */
 //Data* data_atual();
+
+#endif
