@@ -61,8 +61,11 @@ void inicial () {
     int op;
 
     printf("\t\t\tSUPERMERCADO\t\t\t\n");
-    printf("1. Cliente\n2. Funcionário\n3. Sair\n");
+    printf("1. Cliente\n");
+    printf("2. Funcionário\n");
+    printf("3. Sair\n");
     scanf ("%i", &op);
+
     if (op == 1){
         cliente();
     } if (op == 2) {
@@ -87,8 +90,17 @@ void cliente (){
 
 void funcionario () {
     int op;
+    char nome[50], categoria[50], fabricante[50], descricao[50];
+    int codigo, quantidade, corredor, prateleira, dia, mes, ano;
+    float preco;
+    Produto* prod;
+    Data* validade;
 
-    printf("1. Buscar produto\n2. Repor estoque\n3. Cadastrar produtos novos\n");
+
+    printf("1. Buscar produto\n");
+    printf("2. Repor estoque\n");
+    printf("3. Cadastrar produtos novos\n");
+    printf("4. Sair\n");
     scanf ("%i", &op);
     switch (op) {
         case 1:
@@ -96,6 +108,44 @@ void funcionario () {
             break;
         case 2:
         case 3:
+
+            printf("Nome: ");
+            scanf("%s", nome);
+
+            printf("Categoria: ");
+            scanf("%s", categoria);
+
+            printf("Código: ");
+            scanf("%i", &codigo);
+
+            printf("Preço: ");
+            scanf("%f", &preco);
+
+            printf("Quantidade: ");
+            scanf("%i", &quantidade);
+
+            printf("Fabricante: ");
+            scanf("%s", fabricante);
+
+            printf("Descricao: ");
+            scanf("%s", descricao);
+
+            printf("Validade: ");
+            scanf("%i %i %i", &ano, &mes, &dia);
+
+            printf("Corredor: \n");
+            scanf("%i", &corredor);
+
+            printf("Prateleira: ");
+            scanf("%i", &prateleira);
+
+            validade = data_novo(ano, mes, dia);
+            prod = produto_novo(nome, categoria, codigo, preco, quantidade,
+                                fabricante, descricao, validade, corredor, prateleira);
+            estoque_add_produto(estoque, prod);
+
+            break;
+        case 4:
         default:
             printf("Opção inválida!\n");
     }
