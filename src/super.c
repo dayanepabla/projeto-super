@@ -2,6 +2,7 @@
 #include <assert.h>
 
 #include "estoque.h"
+#include "produto.h"
 #include "utils.h"
 
 #define BD_NAME "bd.txt"
@@ -61,6 +62,7 @@ void init () {
 
 void sair () {
     limpar_terminal ();
+
     printf("Encerrando aplicação... salvando produtos... saindo... até logo!\n");
 }
 
@@ -93,36 +95,51 @@ void busca () {
     printf("2. Buscar por fabricante\n");
     printf("3. Buscar por categoria\n");
     printf("4. Sair\n");
+
     scanf ("%i", &op);
 }
 
-void cliente (){
+void cliente () {
     busca ();
 }
 
-void funcionario (){
+void funcionario () {
     int op;
+    Produto *produto;
 
     limpar_terminal ();
+    cabecalho ("Opções de funcionário");
 
     printf("1. Buscar produto\n");
     printf("2. Repor estoque\n");
     printf("3. Cadastrar produtos novos\n");
     printf("4. Sair\n");
+
     scanf ("%i", &op);
-    switch (op) {
-        case 1:
-            busca();
-            break;
-        case 2:
-        case 3:
 
-            // estoque_add_produto(estoque, prod);
+    while (op != 5) {
+        switch (op) {
+            case 1:
+                busca();
+                break;
+            case 2:
+                break;
+            case 3:
+                limpar_terminal ();
+                cabecalho ("Opções de funcionário > Cadastro de produto");
 
-            break;
-        case 4:
-        default:
-            printf("Opção inválida!\n");
+                // Lê as informações do produto do teclado
+                // e adiciona ao estoque.
+                produto = ler_produto();
+                estoque_add_produto(estoque, produto);
+
+                break;
+            case 4:
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+
+        scanf ("%i", &op);
     }
-
 }

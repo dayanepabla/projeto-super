@@ -1,21 +1,28 @@
 #include "produto.h"
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 Produto* produto_novo(char *nome, char *categoria, int codigo, float preco, int quantidade,
                        char *fabricante, char *descricao, Data* validade, int corredor, int prateleira){
 
     Produto *novo_produto;
 
+    // Alocação de memória dos ponteiros.
     novo_produto = (Produto *) malloc(sizeof(Produto));
+    novo_produto->nome = (char *) malloc(strlen(nome)*sizeof(char));
+    novo_produto->categoria = (char *) malloc(strlen(categoria)*sizeof(char));
+    novo_produto->fabricante = (char *) malloc(strlen(fabricante)*sizeof(char));
+    novo_produto->descricao = (char *) malloc(strlen(descricao)*sizeof(char));
 
-    novo_produto->nome = nome;
-    novo_produto->categoria = categoria;
+    strcpy(novo_produto->nome, nome);
+    strcpy(novo_produto->categoria, categoria);
+    strcpy(novo_produto->fabricante, fabricante);
+    strcpy(novo_produto->descricao, descricao);
+
     novo_produto->codigo = codigo;
     novo_produto->preco = preco;
     novo_produto->quantidade = quantidade;
-    novo_produto->fabricante = fabricante;
-    novo_produto->descricao = descricao;
     novo_produto->validade = validade;
     novo_produto->corredor = corredor;
     novo_produto->prateleira = prateleira;

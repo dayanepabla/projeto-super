@@ -13,7 +13,7 @@ void limpar_terminal () {
     printf("\033[2J\033[1;1H");
 }
 
-Produto *ler_produto () {
+Produto* ler_produto () {
     float preco;
     Data* validade;
     char nome[50], categoria[50], fabricante[50], descricao[50];
@@ -41,9 +41,9 @@ Produto *ler_produto () {
     scanf("%s", descricao);
 
     printf("Validade (aaaa/mm/dd): ");
-    scanf("%i %i %i", &ano, &mes, &dia);
+    scanf("%i/%i/%i", &ano, &mes, &dia);
 
-    printf("Corredor: \n");
+    printf("Corredor: ");
     scanf("%i", &corredor);
 
     printf("Prateleira: ");
@@ -51,6 +51,10 @@ Produto *ler_produto () {
 
     validade = data_novo(ano, mes, dia);
 
-    return produto_novo(nome, categoria, codigo, preco, quantidade,
+    Produto *prod = produto_novo(nome, categoria, codigo, preco, quantidade,
                         fabricante, descricao, validade, corredor, prateleira);
+
+    produto_listar(prod);
+
+    return prod;
 }
