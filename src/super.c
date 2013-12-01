@@ -42,7 +42,7 @@ int main () {
 
     init();
     inicial ();
-    sair ();
+    //sair ();
     return 0;
 }
 
@@ -88,7 +88,7 @@ void cliente (){
     busca ();
 }
 
-void funcionario () {
+void funcionario (){
     int op;
     char nome[50], categoria[50], fabricante[50], descricao[50];
     int codigo, quantidade, corredor, prateleira, dia, mes, ano;
@@ -149,8 +149,5 @@ void funcionario () {
         default:
             printf("Opção inválida!\n");
     }
-}
 
-
-    return 0;
 }

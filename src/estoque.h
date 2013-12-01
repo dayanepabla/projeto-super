@@ -25,9 +25,9 @@ int estoque_cheio (Estoque *estoque);
  * Busca um produto por nome.
  */
 int estoque_busca_nome (Estoque* estoque, char *nome_produto, Produto *resultados);
-Lista
+
 /*
- *  produtos por categoria.
+ * Lista produtos por categoria.
  */
 Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto);
 
