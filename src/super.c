@@ -52,6 +52,8 @@ void init () {
 
     // Verifica se o arquivo abriu com sucesso.
     assert(bd != NULL);
+
+    estoque = estoque_novo(0, NULL);
 }
 
 void inicial () {
