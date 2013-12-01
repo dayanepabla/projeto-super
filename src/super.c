@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
+#include <signal.h>
 
 #include "estoque.h"
+#include "cliente.h"
 #include "produto.h"
 #include "utils.h"
 
@@ -18,14 +21,9 @@ Estoque *estoque;
 void init ();
 
 /*
- * Menu inicial.
- */
-void inicial ();
-
-/*
  * Encerra o programa.
  */
-void sair ();
+void sair (int signum);
 
 /*
  * Exibe a tela de cliente.
@@ -37,16 +35,34 @@ void cliente ();
  */
 void funcionario ();
 
-/*
- * Exibe a tela de busca.
- */
-void busca ();
-
 
 int main () {
+    int opcao;
+
     init();
-    inicial ();
-    sair ();
+    signal (SIGINT, sair);
+
+    do {
+        limpar_terminal();
+        cabecalho("Bem vindo!");
+
+        printf("[1] Cliente\n");
+        printf("[2] Funcionário\n");
+
+        rodape ();
+
+        scanf ("%i", &opcao);
+
+        if (opcao == 1) {
+            // Lê a escolha do usuário.
+            opcao = cliente_menu ();
+
+        } else if (opcao == 2) {
+            funcionario();
+        }
+
+    } while (opcao != EOF);
+
 
     return 0;
 }
@@ -60,47 +76,17 @@ void init () {
     estoque = estoque_novo(0, NULL);
 }
 
-void sair () {
+void sair (int signum) {
     limpar_terminal ();
+    cabecalho ("Encerrando aplicação");
 
-    printf("Encerrando aplicação... salvando produtos... saindo... até logo!\n");
-}
+    printf("organizando o estoque...                            OK!\n");
+    printf("varrendo os corredores...                           OK!\n");
+    printf("contabilizando lucros...                            OK!\n");
+    printf("salvando produtos...                                OK!\n");
+    printf("saindo...                                           obrigado e até logo! :)\n");
 
-void inicial () {
-
-    int op;
-
-    limpar_terminal();
-
-    cabecalho("Bem vindo!");
-    printf("1. Cliente\n");
-    printf("2. Funcionário\n");
-    printf("3. Sair\n");
-    scanf ("%i", &op);
-
-    if (op == 1){
-        cliente();
-    } if (op == 2) {
-        funcionario();
-    }
-}
-
-void busca () {
-    int op;
-
-    limpar_terminal ();
-
-    cabecalho("Buscar produto");
-    printf("1. Buscar por nome\n");
-    printf("2. Buscar por fabricante\n");
-    printf("3. Buscar por categoria\n");
-    printf("4. Sair\n");
-
-    scanf ("%i", &op);
-}
-
-void cliente () {
-    busca ();
+    exit (EXIT_SUCCESS);
 }
 
 void funcionario () {
@@ -120,7 +106,7 @@ void funcionario () {
     while (op != 5) {
         switch (op) {
             case 1:
-                busca();
+                // busca();
                 break;
             case 2:
                 break;
