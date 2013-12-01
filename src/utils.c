@@ -13,6 +13,7 @@ void cabecalho (char *tela) {
 
 void rodape () {
     printf("\n\nUse Control<C> para encerrar a qualquer momento.\n");
+    printf("Sua opção: ");
 }
 
 void limpar_terminal () {

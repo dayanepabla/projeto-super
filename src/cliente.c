@@ -11,16 +11,17 @@ int cliente_menu () {
 
     // Opções de busca.
     printf("Buscar produto\n");
-    printf("  [1] por nome\n");
-    printf("  [2] por fabricante\n");
+    printf("  [%i] por nome\n", CLIENTE_BUSCA_NOME);
+    printf("  [%i] por preço\n", CLIENTE_BUSCA_PRECO);
+    printf("  [%i] por fabricante\n", CLIENTE_BUSCA_FABRICANTE);
 
     // Opções do carrinho.
     printf("Carrinho de compras\n");
-    printf("  [3] listar\n");
-    printf("  [4] inserir\n");
-    printf("  [5] retirar\n");
-    printf("  [6] subtotal\n");
-    printf("  [7] fechar compra\n");
+    printf("  [%i] listar\n", CLIENTE_CARRINHO_LISTAR);
+    printf("  [%i] inserir\n", CLIENTE_CARRINHO_ADD);
+    printf("  [%i] retirar\n", CLIENTE_CARRINHO_RM);
+    printf("  [%i] subtotal\n", CLIENTE_CARRINHO_SUBTOTAL);
+    printf("  [%i] fechar compra\n", CLIENTE_CARRINHO_FECHAR_COMPRA);
 
     rodape ();
 

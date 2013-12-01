@@ -10,22 +10,26 @@ int funcionario_menu () {
 
     // Opções de busca.
     printf("Buscar produto\n");
-    printf("  [1] por nome\n");
-    printf("  [2] por código\n");
-    printf("  [3] por fabricante\n");
+    printf("  [%i] por nome\n", FUNCIONARIO_BUSCA_NOME);
+    printf("  [%i] por código\n", FUNCIONARIO_BUSCA_CODIGO);
+    printf("  [%i] por fabricante\n", FUNCIONARIO_BUSCA_FABRICANTE);
 
     // Opções de produtos.
-    printf("Produtos\n");
-    printf("  [4] cadastrar\n");
-    printf("  [5] remover\n");
+    printf("Produto\n");
+    printf("  [%i] cadastrar\n", FUNCIONARIO_PRODUTO_ADD);
+    printf("  [%i] remover\n", FUNCIONARIO_PRODUTO_RM);
 
     // Opções de estoque.
     printf("Estoque\n");
-    printf("  [6] repor\n");
+    printf("  [%i] repor\n", FUNCIONARIO_ESTOQUE_REPOR);
 
     rodape ();
 
     scanf ("%i", &opcao);
 
     return opcao;
+}
+
+void funcionario_busca_nome (Estoque *estoque) {
+
 }

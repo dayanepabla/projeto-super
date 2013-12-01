@@ -33,28 +33,38 @@ int main () {
     init();
     signal (SIGINT, sair);
 
-    do {
-        limpar_terminal();
-        cabecalho("Bem vindo!");
+    limpar_terminal();
+    cabecalho("Bem vindo!");
 
-        printf("[1] Cliente\n");
-        printf("[2] Funcionário\n");
+    printf("[1] Cliente\n");
+    printf("[2] Funcionário\n");
 
-        rodape ();
+    rodape ();
 
-        scanf ("%i", &opcao);
+    scanf ("%i", &opcao);
 
-        if (opcao == 1) {
+    if (opcao == 1) {
+        do {
             // Lê a escolha do usuário.
             opcao = cliente_menu ();
-
-        } else if (opcao == 2) {
+        } while (opcao != EOF);
+    } else if (opcao == 2) {
+        do {
             // Lê a escolha do usuário.
             opcao = funcionario_menu ();
-        }
 
-    } while (opcao != EOF);
-
+            // Executa a ação desejada.
+            switch (opcao) {
+                case FUNCIONARIO_BUSCA_NOME:
+                    funcionario_busca_nome (estoque);
+                    break;
+                case FUNCIONARIO_BUSCA_CODIGO:
+                    break;
+                case FUNCIONARIO_BUSCA_FABRICANTE:
+                    break;
+            }
+        } while (opcao != EOF);
+    }
 
     return 0;
 }
@@ -71,6 +81,8 @@ void init () {
 void sair (int signum) {
     limpar_terminal ();
     cabecalho ("Encerrando aplicação");
+
+    estoque_salvar (estoque, bd);
 
     printf("organizando o estoque...                            OK!\n");
     printf("varrendo os corredores...                           OK!\n");
