@@ -31,8 +31,33 @@ int funcionario_menu ();
 void funcionario_busca_nome (Estoque *estoque);
 
 /*
+ * Busca um produto, por código, no estoque.
+ */
+void funcionario_busca_codigo (Estoque *estoque);
+
+/*
+ * Busca um produto, por fabricante, no estoque.
+ */
+void funcionario_busca_fabricante (Estoque *estoque);
+
+/*
  * Lista os produtos do estoque em ordem alfabética.
  */
 void funcionario_listar_nome (Estoque *estoque);
+
+/*
+ * Remove produto do estoque.
+ */
+void funcionario_produto_rm (Estoque *estoque);
+
+/*
+ * Repõe produto do estoque.
+ */
+void funcionario_estoque_repor (Estoque *estoque);
+
+/*
+ * Adição de produto ao estoque.
+ */
+void funcionario_add (Estoque *estoque);
 
 #endif

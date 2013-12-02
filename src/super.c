@@ -74,15 +74,19 @@ int main () {
                     funcionario_busca_nome (estoque);
                     break;
                 case FUNCIONARIO_BUSCA_CODIGO:
+                    funcionario_busca_codigo (estoque);
                     break;
                 case FUNCIONARIO_BUSCA_FABRICANTE:
+                    funcionario_busca_fabricante (estoque);
                     break;
                 case FUNCIONARIO_PRODUTO_ADD:
                     funcionario_add (estoque);
                     break;
                 case FUNCIONARIO_PRODUTO_RM:
+                    funcionario_produto_rm (estoque);
                     break;
                 case FUNCIONARIO_ESTOQUE_REPOR:
+                    funcionario_estoque_repor (estoque);
                     break;
                 case FUNCIONARIO_ESTOQUE_LISTAR_NOME:
                     funcionario_listar_nome (estoque);
@@ -90,6 +94,8 @@ int main () {
             }
         } while (opcao != EOF);
     }
+
+    sair (0);
 
     return 0;
 }
@@ -101,13 +107,16 @@ void init () {
     assert(bd != NULL);
 
     estoque = estoque_novo_de_arquivo (bd);
+
+    fclose (bd);
 }
 
 void sair (int signum) {
+    bd = fopen(BD_NAME, "w");
+
     limpar_terminal ();
     cabecalho ("Encerrando aplicação");
 
-    rewind(bd);
     estoque_salvar (estoque, bd);
 
     printf("organizando o estoque...                            OK!\n");

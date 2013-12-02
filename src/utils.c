@@ -75,6 +75,14 @@ Produto* ler_produto () {
     return prod;
 }
 
+// void listar_produtos (Produto *produtos, int len) {
+//     int i;
+
+//     for (i = 0; i < len; ++i) {
+//         produto_listar (&produtos[i]);
+//     }
+// }
+
 void pswap (Produto *prod1, Produto *prod2) {
     size_t psize;
     Produto *aux;

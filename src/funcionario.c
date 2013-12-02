@@ -1,5 +1,6 @@
 #include "funcionario.h"
 #include "utils.h"
+#include "filtros.h"
 
 int funcionario_menu () {
     int opcao;
@@ -32,9 +33,8 @@ int funcionario_menu () {
 }
 
 void funcionario_busca_nome (Estoque *estoque) {
-    int results;
+    Produto *produto;
     char *nome = NULL;
-    Produto *produtos = NULL;
 
     limpar_terminal ();
     cabecalho ("Buscar produto por nome");
@@ -42,9 +42,52 @@ void funcionario_busca_nome (Estoque *estoque) {
     printf ("Digite o nome do produto: ");
     scanf (" %s\n", nome);
 
-    results = estoque_busca_nome (estoque, nome, produtos);
+    produto = estoque_busca_nome (estoque, nome);
 
-    printf("%i\n", results);
+    if (produto == NULL)
+        printf("\nNenhum produto encontrado!\n");
+    else
+        produto_listar (produto);
+
+    aguarde ();
+}
+
+void funcionario_busca_codigo (Estoque *estoque) {
+    Produto *produto;
+    int codigo;
+
+    limpar_terminal ();
+    cabecalho ("Buscar produto por código");
+
+    printf("Digite o código do produto: ");
+    scanf (" %i\n", &codigo);
+
+/*    produto = estoque_busca_codigo (estoque, codigo);
+
+    if (produto == NULL)
+        printf("\nNenhum produto encontrado!\n");
+    else
+        produto_listar (produto);
+*/
+    aguarde ();
+}
+
+void funcionario_busca_fabricante (Estoque *estoque) {
+    Produto *produto;
+    char *fabricante = NULL;
+
+    limpar_terminal ();
+    cabecalho ("Buscar produto por fabricante");
+
+    printf("Digite o nome do fabricante do produto: \n");
+    scanf (" %s\n", fabricante);
+
+/*    produto = estoque_busca_fabricante (estoque, fabricante);
+
+    if (produto == NULL)
+        printf("\nNenhum produto encontrado!\n");
+    else
+        produto_listar (produto);*/
 
     aguarde ();
 }
@@ -54,6 +97,44 @@ void funcionario_listar_nome (Estoque *estoque) {
     cabecalho ("Listagem do estoque em ordem alfabética");
 
     estoque_listar (estoque);
+
+    aguarde ();
+}
+
+void funcionario_produto_rm (Estoque *estoque) {
+    Produto *produto;
+    int codigo;
+
+    limpar_terminal ();
+    cabecalho ("Remover produto do estoque");
+
+    printf("Digite o código do produto: \n");
+    scanf ("%i", &codigo);
+
+    aguarde ();
+}
+
+void funcionario_estoque_repor (Estoque *estoque) {
+    Produto *produto;
+    int codigo;
+
+    limpar_terminal ();
+    cabecalho ("Repor produto no estoque");
+
+    printf("Digite o código do produto: ");
+    scanf ("%i", &codigo);
+
+    aguarde ();
+}
+
+void funcionario_add (Estoque *estoque) {
+    Produto *produto;
+
+    limpar_terminal ();
+    cabecalho ("Adição de produto ao estoque");
+
+    produto = ler_produto ();
+    estoque_add_produto (estoque, produto);
 
     aguarde ();
 }

@@ -38,6 +38,10 @@ Estoque* estoque_novo_de_arquivo (FILE *bd) {
         char nome[100], categoria[100], fabricante[100], descricao[100];
         int ano, mes, dia, corredor, prateleira, codigo, quantidade;
 
+        fscanf(bd, "%s\n", header);
+
+        if (strlen (header) == 0 || strcmp(header, "[produto]") == 0)
+            continue;
 
         fscanf(bd, "nome: %s\n", nome);
         fscanf(bd, "categoria: %s\n", categoria);
@@ -64,23 +68,21 @@ int estoque_cheio (Estoque *estoque) {
     return estoque->qtd_produtos == ESTOQUE_MAX_SIZE;
 }
 
-int estoque_busca_nome (Estoque* estoque, char *nome_produto, Produto *resultados) {
-    int i, k;
+Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
+    int i;
 
-    resultados = (Produto *) malloc(ESTOQUE_MAX_SIZE*sizeof(Produto));
-
-    for (i = k = 0; i < estoque->qtd_produtos; i++) {
-        if (estoque->produtos[i].nome == nome_produto)
-            resultados[k++] = estoque->produtos[i];
+    for (i = 0; i < estoque->qtd_produtos - 1; i++) {
+        if (strcmp(estoque->produtos[i].nome, nome_produto) == 0)
+            return &estoque->produtos[i];
     }
 
-    return k;
+    return NULL;
 }
 
 Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto) {
     int i;
 
-    for (i = 0; i < estoque->qtd_produtos; i++) {
+    for (i = 0; i < estoque->qtd_produtos - 1; i++) {
         if (estoque->produtos[i].categoria == categoria_produto)
             return &estoque->produtos[i];
     }
@@ -92,7 +94,7 @@ int estoque_busca_codigo (Estoque *estoque, int codigo, Produto *resultados) {
     int i, k;
     resultados = (Produto *) malloc(ESTOQUE_MAX_SIZE*sizeof(Produto));
 
-    for (i = k = 0; i < estoque->qtd_produtos; i++) {
+    for (i = k = 0; i < estoque->qtd_produtos - 1; i++) {
         if (estoque->produtos[i].codigo == codigo)
             resultados[k++] = estoque->produtos[i];
     }
@@ -105,7 +107,7 @@ int estoque_busca_fabricante (Estoque *estoque, char* fabricante, Produto *resul
 
     resultados = (Produto *) malloc(ESTOQUE_MAX_SIZE*sizeof(Produto));
 
-    for (i = k = 0; i < estoque->qtd_produtos; i++) {
+    for (i = k = 0; i < estoque->qtd_produtos - 1; i++) {
         if (estoque->produtos[i].fabricante == fabricante)
             resultados[k++] = estoque->produtos[i];
     }
@@ -149,7 +151,7 @@ void estoque_baixo (Estoque *estoque, int qtd) {
 
     int i;
 
-    for (i = 0; i < estoque->qtd_produtos; i++){
+    for (i = 0; i < estoque->qtd_produtos - 1; i++){
         if (estoque->produtos[i].quantidade <= qtd)
             produto_listar(&estoque->produtos[i]);
     }

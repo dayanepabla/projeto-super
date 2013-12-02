@@ -31,6 +31,11 @@ void limpar_terminal ();
 Produto *ler_produto ();
 
 /*
+ * Imprime uma lista de produtos.
+ */
+// void listar_produtos (Produto *produtos);
+
+/*
  * Swap entre ponteiros do tipo Produto.
  */
 void pswap (Produto *prod1, Produto *prod2);

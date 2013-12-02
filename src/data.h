@@ -1,5 +1,6 @@
 #ifndef DATA_H
 #define DATA_H
+
 struct _data{
     int ano;
     int mes;

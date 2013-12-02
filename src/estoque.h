@@ -32,7 +32,7 @@ int estoque_cheio (Estoque *estoque);
 /*
  * Busca um produto por nome.
  */
-int estoque_busca_nome (Estoque* estoque, char *nome_produto, Produto *resultados);
+Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
 
 /*
  * Lista produtos por categoria.
