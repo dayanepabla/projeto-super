@@ -4,16 +4,12 @@
 #include <signal.h>
 
 #include "estoque.h"
+#include "carrinho.h"
 #include "cliente.h"
 #include "funcionario.h"
 #include "produto.h"
 #include "utils.h"
-
-#define BD_NAME "bd.txt"
-
-
-FILE *bd;
-Estoque *estoque;
+#include "globals.h"
 
 
 /*
@@ -44,6 +40,14 @@ int main () {
     scanf ("%i", &opcao);
 
     if (opcao == 1) {
+        // Estoque *estoque;
+        Produto *prod1 = ler_produto ();
+        Produto *prod2 = ler_produto ();
+
+        estoque = estoque_novo (0, NULL);
+        estoque_add_produto (estoque, prod1);
+        estoque_add_produto (estoque, prod2);
+
         do {
             // Lê a escolha do usuário.
             opcao = cliente_menu ();
@@ -70,18 +74,19 @@ int main () {
 }
 
 void init () {
-    bd = fopen(BD_NAME, "a");
+    bd = fopen(BD_NAME, "r+");
 
     // Verifica se o arquivo abriu com sucesso.
     assert(bd != NULL);
 
-    estoque = estoque_novo(0, NULL);
+    estoque = estoque_novo_de_arquivo (bd);
 }
 
 void sair (int signum) {
     limpar_terminal ();
     cabecalho ("Encerrando aplicação");
 
+    rewind(bd);
     estoque_salvar (estoque, bd);
 
     printf("organizando o estoque...                            OK!\n");
@@ -89,6 +94,9 @@ void sair (int signum) {
     printf("contabilizando lucros...                            OK!\n");
     printf("salvando produtos...                                OK!\n");
     printf("saindo...                                           obrigado e até logo! :)\n");
+
+    free (estoque);
+    fclose (bd);
 
     exit (EXIT_SUCCESS);
 }
