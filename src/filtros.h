@@ -7,7 +7,7 @@
 /*
  * Filtra por ordem alfabética
  */
-Produto* filtros_nome (Produto *produtos, int qtd);
+void filtros_nome (Produto *produtos, int qtd);
 
 /*
  * Filtra por menor preço

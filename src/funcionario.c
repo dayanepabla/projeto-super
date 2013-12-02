@@ -96,6 +96,7 @@ void funcionario_listar_nome (Estoque *estoque) {
     limpar_terminal ();
     cabecalho ("Listagem do estoque em ordem alfabética");
 
+    filtros_nome (estoque->produtos, estoque->qtd_produtos);
     estoque_listar (estoque);
 
     aguarde ();
