@@ -1,5 +1,6 @@
 #include "estoque.h"
 #include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 
 
@@ -13,6 +14,42 @@ Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
     novo_estoque = (Estoque *) malloc(sizeof(Estoque));
     novo_estoque->qtd_produtos = qtd_produtos;
     novo_estoque->produtos = produtos;
+
+    return novo_estoque;
+}
+
+Estoque* estoque_novo_de_arquivo (FILE *bd) {
+    assert (bd != NULL);
+
+    Produto *produto;
+    Estoque *novo_estoque;
+
+    novo_estoque = estoque_novo (0, NULL);
+
+    while (!feof (bd)) {
+        float preco;
+        Data* validade;
+        char nome[100], categoria[100], fabricante[100], descricao[100];
+        int ano, mes, dia, corredor, prateleira, codigo, quantidade;
+
+        fscanf(bd, "%s\n", nome);
+        fscanf(bd, "nome: %s\n", nome);
+        fscanf(bd, "categoria: %s\n", categoria);
+        fscanf(bd, "codigo: %i\n", &codigo);
+        fscanf(bd, "preco: %f\n", &preco);
+        fscanf(bd, "quantidade: %i\n", &quantidade);
+        fscanf(bd, "fabricante: %s\n", fabricante);
+        fscanf(bd, "descricao: %s\n", descricao);
+        fscanf(bd, "validade: %i/%i/%i\n", &ano, &mes, &dia);
+        fscanf(bd, "corredor: %i\n", &corredor);
+        fscanf(bd, "prateleira: %i\n\n", &prateleira);
+
+        validade = data_novo (ano, mes, dia);
+        produto = produto_novo(nome, categoria, codigo, preco, quantidade,
+                    fabricante, descricao, validade, corredor, prateleira);
+
+        estoque_add_produto (novo_estoque, produto);
+    }
 
     return novo_estoque;
 }

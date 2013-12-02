@@ -18,6 +18,11 @@ typedef struct _estoque Estoque;
  */
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos);
 
+/*
+ * Inicializa um objeto Estoque, carregando os produtos do arquivo especificado
+ * por bd.
+ */
+Estoque* estoque_novo_de_arquivo (FILE *bd);
 
 /*
  * Retorna TRUE caso o estoque esteja cheio e FALSE caso contrário.

@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include "data.h"
 
+#define PRODUTO_CABECALHO "[produto]"
+
 struct _produto {
     char *nome;
     char *categoria;

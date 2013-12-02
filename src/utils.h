@@ -25,4 +25,9 @@ void limpar_terminal ();
  */
 Produto *ler_produto ();
 
+/*
+ * Swap entre ponteiros do tipo Produto.
+ */
+void pswap (Produto *prod1, Produto *prod2);
+
 #endif
