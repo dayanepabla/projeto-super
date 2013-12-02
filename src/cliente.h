@@ -60,4 +60,9 @@ void cliente_carrinho_rm (Carrinho *carrinho);
  */
 void cliente_subtotal (Carrinho *carrinho);
 
+/*
+ * exibe o total das compras realizadas.
+ */
+void cliente_carrinho_fechar_compra (Carrinho *carrinho);
+
 #endif

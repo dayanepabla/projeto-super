@@ -70,6 +70,7 @@ int main () {
                     cliente_subtotal (carrinho);
                     break;
                 case CLIENTE_CARRINHO_FECHAR_COMPRA:
+                    cliente_carrinho_fechar_compra (carrinho);
                     break;
             }
         } while (opcao != EOF);

@@ -68,3 +68,16 @@ float carrinho_subtotal (Carrinho *carrinho){
 
     return subtotal;
 }
+
+float carrinho_total (Carrinho *carrinho) {
+    int i;
+    Produto *prod;
+    float total = 0.0;
+
+    for (i = 0; i < carrinho->qtd_produtos; i++) {
+        prod = &carrinho->produtos[i];
+
+        total += (prod->preco * prod->quantidade);
+    }
+    return total;
+}

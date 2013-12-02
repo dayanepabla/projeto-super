@@ -141,3 +141,12 @@ void cliente_subtotal (Carrinho *carrinho) {
 
     aguarde ();
 }
+
+void cliente_carrinho_fechar_compra (Carrinho *carrinho) {
+    limpar_terminal ();
+    cabecalho ("Total");
+
+    printf("Total: %.2f\n", carrinho_total (carrinho));
+
+    aguarde ();
+}
