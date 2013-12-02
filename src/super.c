@@ -106,8 +106,6 @@ int main () {
         } while (opcao != EOF);
     }
 
-    sair (0);
-
     return 0;
 }
 
@@ -125,10 +123,10 @@ void init () {
 void sair (int signum) {
     bd = fopen(BD_NAME, "w");
 
+    estoque_salvar (estoque, bd);
+
     limpar_terminal ();
     cabecalho ("Encerrando aplicação");
-
-    estoque_salvar (estoque, bd);
 
     printf("organizando o estoque...                            OK!\n");
     printf("varrendo os corredores...                           OK!\n");
