@@ -116,9 +116,14 @@ void estoque_listar (Estoque *estoque){
 
     int i;
 
+    printf("+-----------------------------------------------------------------------+\n");
+    printf("| Nome          | Categoria      | Validade    |Loc.  | Qtd.  | Preço   |\n");
+
     for (i = 0; i < estoque->qtd_produtos; i++) {
        produto_listar (&estoque->produtos[i]);
     }
+
+    printf("+-----------------------------------------------------------------------+\n");
 }
 
 int estoque_salvar (Estoque *estoque, FILE *bd) {
