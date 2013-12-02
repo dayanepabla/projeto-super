@@ -21,10 +21,16 @@ Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
 Estoque* estoque_novo_de_arquivo (FILE *bd) {
     assert (bd != NULL);
 
+    char header[100];
     Produto *produto;
     Estoque *novo_estoque;
 
     novo_estoque = estoque_novo (0, NULL);
+
+    fscanf(bd, "%s\n", header);
+
+    if (strlen (header) == 0)
+        return novo_estoque;
 
     while (!feof (bd)) {
         float preco;
@@ -32,7 +38,7 @@ Estoque* estoque_novo_de_arquivo (FILE *bd) {
         char nome[100], categoria[100], fabricante[100], descricao[100];
         int ano, mes, dia, corredor, prateleira, codigo, quantidade;
 
-        fscanf(bd, "%s\n", nome);
+
         fscanf(bd, "nome: %s\n", nome);
         fscanf(bd, "categoria: %s\n", categoria);
         fscanf(bd, "codigo: %i\n", &codigo);

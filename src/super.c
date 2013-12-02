@@ -78,6 +78,7 @@ int main () {
                 case FUNCIONARIO_BUSCA_FABRICANTE:
                     break;
                 case FUNCIONARIO_PRODUTO_ADD:
+                    funcionario_add (estoque);
                     break;
                 case FUNCIONARIO_PRODUTO_RM:
                     break;
@@ -94,7 +95,7 @@ int main () {
 }
 
 void init () {
-    bd = fopen(BD_NAME, "r+");
+    bd = fopen(BD_NAME, "ar+");
 
     // Verifica se o arquivo abriu com sucesso.
     assert(bd != NULL);
