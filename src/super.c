@@ -105,6 +105,9 @@ int main () {
                 case FUNCIONARIO_ESTOQUE_LISTAR_PRECO:
                     funcionario_listar_preco (estoque);
                     break;
+                case FUNCIONARIO_ESTOQUE_LISTAR_QUANTIDADE:
+                    funcionario_listar_quantidade (estoque);
+                    break;
             }
         } while (opcao != EOF);
     }

@@ -25,3 +25,14 @@ void filtros_menor_preco (Produto *produtos, int qtd) {
         }
     }
 }
+
+void filtros_menor_quantidade (Produto *produtos, int qtd) {
+    int i, j;
+
+    for (j = 0; j < qtd -1; ++j) {
+        for (i = 0; i < qtd - 1; ++i) {
+            if (produtos[i].quantidade > produtos[i + 1].quantidade)
+                pswap (&produtos[i], &produtos[i + 1]);
+        }
+    }
+}
