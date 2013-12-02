@@ -16,7 +16,8 @@ typedef enum {
 
     // Opções de estoque.
     FUNCIONARIO_ESTOQUE_REPOR = 6,
-    FUNCIONARIO_ESTOQUE_LISTAR_NOME = 7
+    FUNCIONARIO_ESTOQUE_LISTAR_NOME = 7,
+    FUNCIONARIO_ESTOQUE_LISTAR_PRECO = 8
 } FuncionarioOpcoes;
 
 
@@ -44,6 +45,12 @@ void funcionario_busca_fabricante (Estoque *estoque);
  * Lista os produtos do estoque em ordem alfabética.
  */
 void funcionario_listar_nome (Estoque *estoque);
+
+/*
+ * Lista os produtos do estoque pelo preço, do menor
+ * para o maior.
+ */
+void funcionario_listar_preco (Estoque *estoque);
 
 /*
  * Remove produto do estoque.

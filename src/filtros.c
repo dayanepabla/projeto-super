@@ -14,3 +14,14 @@ void filtros_nome (Produto *produtos, int qtd) {
         }
     }
 }
+
+void filtros_menor_preco (Produto *produtos, int qtd) {
+    int i, j;
+
+    for (j = 0; j < qtd -1; ++j) {
+        for (i = 0; i < qtd - 1; ++i) {
+            if (produtos[i].preco > produtos[i + 1].preco)
+                pswap (&produtos[i], &produtos[i + 1]);
+        }
+    }
+}
