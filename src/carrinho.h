@@ -29,9 +29,22 @@ Carrinho* carrinho_novo (int qtd_produtos, Produto *produtos);
 int carrinho_cheio (Carrinho *carrinho);
 
 /*
+ * Indica se o carrinho está vazio.
+ *
+ * Retorna TRUE caso a quantidade de produtos seja exatamente zero e
+ * FALSE caso contrário.
+ */
+int carrinho_vazio (Carrinho *carrinho);
+
+/*
  * Adiciona um produto ao carrinho.
  */
 void carrinho_add_produto (Carrinho *carrinho, Produto *prod);
+
+/*
+ * Remove o produto indicado pelo inteiro 'indice'.
+ */
+void carrinho_rm_produto (Carrinho *carrinho, int indice);
 
 /*
  * Lista os produtos do carrinho de compras.
