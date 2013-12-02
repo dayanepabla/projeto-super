@@ -12,8 +12,8 @@ int cliente_menu () {
     // Opções de busca.
     printf("Buscar produto\n");
     printf("  [%i] por nome\n", CLIENTE_BUSCA_NOME);
-    printf("  [%i] por preço\n", CLIENTE_BUSCA_PRECO);
     printf("  [%i] por fabricante\n", CLIENTE_BUSCA_FABRICANTE);
+    printf("  [%i] por categoria\n", CLIENTE_BUSCA_CATEGORIA);
 
     // Opções do carrinho.
     printf("Carrinho de compras\n");

@@ -5,8 +5,8 @@
 typedef enum {
     // Opções de busca.
     CLIENTE_BUSCA_NOME = 1,
-    CLIENTE_BUSCA_PRECO = 2,
-    CLIENTE_BUSCA_FABRICANTE = 3,
+    CLIENTE_BUSCA_FABRICANTE = 2,
+    CLIENTE_BUSCA_CATEGORIA = 3,
 
     // Opções de carrinho.
     CLIENTE_CARRINHO_LISTAR = 4,
