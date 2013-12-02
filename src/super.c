@@ -40,17 +40,28 @@ int main () {
     scanf ("%i", &opcao);
 
     if (opcao == 1) {
-        // Estoque *estoque;
-        Produto *prod1 = ler_produto ();
-        Produto *prod2 = ler_produto ();
-
-        estoque = estoque_novo (0, NULL);
-        estoque_add_produto (estoque, prod1);
-        estoque_add_produto (estoque, prod2);
-
         do {
             // Lê a escolha do usuário.
             opcao = cliente_menu ();
+
+            switch (opcao) {
+                case CLIENTE_BUSCA_NOME:
+                    break;
+                case CLIENTE_BUSCA_FABRICANTE:
+                    break;
+                case CLIENTE_BUSCA_CATEGORIA:
+                    break;
+                case CLIENTE_CARRINHO_LISTAR:
+                    break;
+                case CLIENTE_CARRINHO_ADD:
+                    break;
+                case CLIENTE_CARRINHO_RM:
+                    break;
+                case CLIENTE_CARRINHO_SUBTOTAL:
+                    break;
+                case CLIENTE_CARRINHO_FECHAR_COMPRA:
+                    break;
+            }
         } while (opcao != EOF);
     } else if (opcao == 2) {
         do {
@@ -65,6 +76,12 @@ int main () {
                 case FUNCIONARIO_BUSCA_CODIGO:
                     break;
                 case FUNCIONARIO_BUSCA_FABRICANTE:
+                    break;
+                case FUNCIONARIO_PRODUTO_ADD:
+                    break;
+                case FUNCIONARIO_PRODUTO_RM:
+                    break;
+                case FUNCIONARIO_ESTOQUE_REPOR:
                     break;
             }
         } while (opcao != EOF);

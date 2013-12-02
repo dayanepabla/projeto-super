@@ -31,5 +31,19 @@ int funcionario_menu () {
 }
 
 void funcionario_busca_nome (Estoque *estoque) {
+    int results;
+    char *nome = NULL;
+    Produto *produtos = NULL;
 
+    limpar_terminal ();
+    cabecalho ("Buscar produto por nome");
+
+    printf ("Digite o nome do produto: ");
+    scanf (" %s\n", nome);
+
+    results = estoque_busca_nome (estoque, nome, produtos);
+
+    printf("%i\n", results);
+
+    aguarde ();
 }

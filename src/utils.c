@@ -20,6 +20,11 @@ void rodape () {
     printf("Sua opção: ");
 }
 
+void aguarde () {
+    printf("Digite 'c' para continuar...\n");
+    while (getchar() != 'c');
+}
+
 void limpar_terminal () {
     printf("\033[2J\033[1;1H");
 }

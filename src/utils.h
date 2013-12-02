@@ -15,6 +15,11 @@ void cabecalho (char *tela);
 void rodape ();
 
 /*
+ * Aguarda que o usuário c antes de continuar.
+ */
+void aguarde ();
+
+/*
  * Limpa o terminal, ou seja, apaga todos os caracteres existentes
  * e move o cursor para a primeira coluna da primeira linha.
  */
