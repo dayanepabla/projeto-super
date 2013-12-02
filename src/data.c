@@ -13,15 +13,16 @@ Data* data_novo(int ano, int mes, int dia){
     return nova_data;
  }
 
-/*Data* data_atual() {
-    return data_novo(2013,12,30);
-}
-*/
+Data* data_atual() {
+    int ano, mes, dia;
+    struct tm * local;
+    time_t t;
 
-/*struct tm * local;
-time_t t;
-t = tempo (NULL);
-local = localtime (& t);
-dia = local-> tm_mday;
-mes = local-> tm_mon +1;
-Ano = local-> tm_year 1900; */
+    t = time(NULL);
+    local = localtime (& t);
+    dia = local->tm_mday;
+    mes = local->tm_mon + 1;
+    ano = local->tm_year + 1900;
+
+    return data_novo(ano, mes, dia);
+}

@@ -40,24 +40,34 @@ int main () {
     scanf ("%i", &opcao);
 
     if (opcao == 1) {
+        Carrinho* carrinho;
+
+        carrinho = carrinho_novo (0, NULL);
         do {
             // Lê a escolha do usuário.
             opcao = cliente_menu ();
 
             switch (opcao) {
                 case CLIENTE_BUSCA_NOME:
+                    cliente_busca_nome (estoque);
                     break;
                 case CLIENTE_BUSCA_FABRICANTE:
+                    cliente_busca_fabricante (estoque);
                     break;
                 case CLIENTE_BUSCA_CATEGORIA:
+                    cliente_busca_categoria (estoque);
                     break;
                 case CLIENTE_CARRINHO_LISTAR:
+                    cliente_carrinho_listar (carrinho);
                     break;
                 case CLIENTE_CARRINHO_ADD:
+                    cliente_carrinho_add (estoque, carrinho);
                     break;
                 case CLIENTE_CARRINHO_RM:
+                    cliente_carrinho_rm (carrinho);
                     break;
                 case CLIENTE_CARRINHO_SUBTOTAL:
+                    cliente_subtotal (carrinho);
                     break;
                 case CLIENTE_CARRINHO_FECHAR_COMPRA:
                     break;

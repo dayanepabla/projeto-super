@@ -29,3 +29,115 @@ int cliente_menu () {
 
     return opcao;
 }
+
+void cliente_busca_nome (Estoque* estoque) {
+    Produto *produto;
+    char *nome = NULL;
+
+    limpar_terminal ();
+    cabecalho ("Buscar produto por nome");
+
+    printf ("Digite o nome do produto: ");
+    scanf (" %s\n", nome);
+
+/*    produto = cliente_busca_nome(estoque, nome);
+
+    if (produto == NULL)
+        printf("\nNenhum produto encontrado!\n");
+    else
+        produto_listar (produto);*/
+
+    aguarde ();
+}
+
+void cliente_busca_fabricante (Estoque *estoque) {
+    Produto *produto;
+    char *fabricante = NULL;
+
+    limpar_terminal ();
+    cabecalho ("Buscar produto por fabricante");
+
+    printf("Digite o nome do fabricante do produto: \n");
+    scanf (" %s\n", fabricante);
+
+/*    produto = cliente_busca_fabricante (estoque, fabricante);
+
+    if (produto == NULL)
+        printf("\nNenhum produto encontrado!\n");
+    else
+        produto_listar (produto);*/
+
+    aguarde ();
+}
+
+void cliente_busca_categoria (Estoque* estoque) {
+    Produto *produto;
+    char *categoria = NULL;
+
+    limpar_terminal ();
+    cabecalho ("Buscar produto por categoria");
+
+    printf("Digite o nome da categoria do produto: \n");
+    scanf (" %s\n", categoria);
+
+/*    produto = cliente_busca_fabricante (estoque, fabricante);
+
+    if (produto == NULL)
+        printf("\nNenhum produto encontrado!\n");
+    else
+        produto_listar (produto);*/
+
+    aguarde ();
+}
+
+void cliente_carrinho_listar (Carrinho* carrinho) {
+    limpar_terminal ();
+    cabecalho ("Produtos do seu carrinho");
+
+    carrinho_listar (carrinho);
+
+    aguarde ();
+}
+
+void cliente_carrinho_add (Estoque* estoque, Carrinho* carrinho) {
+    int qtd, codigo;
+    Produto* produto;
+
+    limpar_terminal ();
+    cabecalho ("Inserir produto no carrinho");
+
+    printf ("Entre com o código do produto: ");
+    scanf ("%i", &codigo);
+
+    printf ("Quantos itens deseja adicionar: ");
+    scanf ("%i", &qtd);
+
+    // produto = estoque_busca_codigo (estoque, codigo);
+    // carrinho_add_produto (carrinho, produto);
+
+    aguarde ();
+}
+
+void cliente_carrinho_rm (Carrinho *carrinho) {
+    int qtd, codigo;
+
+    limpar_terminal ();
+    cabecalho ("Retirar produto do carrinho");
+
+    printf ("Entre com o código do produto: ");
+    scanf ("%i", &codigo);
+
+    printf ("Quantos itens deseja remover: ");
+    scanf ("%i", &qtd);
+
+    aguarde ();
+}
+
+void cliente_subtotal (Carrinho *carrinho) {
+    limpar_terminal ();
+    cabecalho ("Subtotal");
+
+    printf("Subtotal: %.2f\n", carrinho_subtotal (carrinho));
+
+    aguarde ();
+}
