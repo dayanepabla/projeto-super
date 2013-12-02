@@ -15,7 +15,8 @@ typedef enum {
     FUNCIONARIO_PRODUTO_RM = 5,
 
     // Opções de estoque.
-    FUNCIONARIO_ESTOQUE_REPOR = 6
+    FUNCIONARIO_ESTOQUE_REPOR = 6,
+    FUNCIONARIO_ESTOQUE_LISTAR_NOME = 7
 } FuncionarioOpcoes;
 
 
@@ -28,5 +29,10 @@ int funcionario_menu ();
  * Busca um produto, por nome, no estoque.
  */
 void funcionario_busca_nome (Estoque *estoque);
+
+/*
+ * Lista os produtos do estoque em ordem alfabética.
+ */
+void funcionario_listar_nome (Estoque *estoque);
 
 #endif

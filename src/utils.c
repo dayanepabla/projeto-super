@@ -21,7 +21,7 @@ void rodape () {
 }
 
 void aguarde () {
-    printf("Digite 'c' para continuar...\n");
+    printf("\nDigite 'c' para continuar...\n");
     while (getchar() != 'c');
 }
 

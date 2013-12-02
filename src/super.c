@@ -83,6 +83,9 @@ int main () {
                     break;
                 case FUNCIONARIO_ESTOQUE_REPOR:
                     break;
+                case FUNCIONARIO_ESTOQUE_LISTAR_NOME:
+                    funcionario_listar_nome (estoque);
+                    break;
             }
         } while (opcao != EOF);
     }

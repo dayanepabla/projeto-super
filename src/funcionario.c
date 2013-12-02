@@ -22,6 +22,7 @@ int funcionario_menu () {
     // Opções de estoque.
     printf("Estoque\n");
     printf("  [%i] repor\n", FUNCIONARIO_ESTOQUE_REPOR);
+    printf("  [%i] listar por nome\n", FUNCIONARIO_ESTOQUE_LISTAR_NOME);
 
     rodape ();
 
@@ -44,6 +45,15 @@ void funcionario_busca_nome (Estoque *estoque) {
     results = estoque_busca_nome (estoque, nome, produtos);
 
     printf("%i\n", results);
+
+    aguarde ();
+}
+
+void funcionario_listar_nome (Estoque *estoque) {
+    limpar_terminal ();
+    cabecalho ("Listagem do estoque em ordem alfabética");
+
+    estoque_listar (estoque);
 
     aguarde ();
 }
