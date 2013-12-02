@@ -25,6 +25,16 @@ void aguarde () {
     while (getchar() != 'c');
 }
 
+void hr () {
+    printf("+-----------------------------------------------------------------------+\n");
+}
+
+void tabela_produto () {
+    hr ();
+    printf("| Nome          | Categoria      | Validade    |Loc.  | Qtd.  | Preço   |\n");
+    hr ();
+}
+
 void limpar_terminal () {
     printf("\033[2J\033[1;1H");
 }

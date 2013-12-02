@@ -20,6 +20,16 @@ void rodape ();
 void aguarde ();
 
 /*
+ * Imprime uma linha pontilhada.
+ */
+void hr ();
+
+/*
+ * Imprime o cabeçalho da tabela de produtos.
+ */
+void tabela_produto ();
+
+/*
  * Limpa o terminal, ou seja, apaga todos os caracteres existentes
  * e move o cursor para a primeira coluna da primeira linha.
  */
