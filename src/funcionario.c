@@ -141,14 +141,21 @@ void funcionario_produto_rm (Estoque *estoque) {
 }
 
 void funcionario_estoque_repor (Estoque *estoque) {
+    int qtd, codigo;
+    Data *validade;
     Produto *produto;
-    int codigo;
 
     limpar_terminal ();
     cabecalho ("Repor produto no estoque");
 
     printf("Digite o código do produto: ");
     scanf ("%i", &codigo);
+
+    printf("Digite quantidade do produto: ");
+    scanf ("%i", &qtd);
+
+    validade = data_atual ();
+    estoque_repor (estoque, codigo, validade, qtd);
 
     aguarde ();
 }

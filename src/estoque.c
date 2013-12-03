@@ -87,16 +87,15 @@ Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto) {
     return NULL;
 }
 
-int estoque_busca_codigo (Estoque *estoque, int codigo, Produto *resultados) {
-    int i, k;
-    resultados = (Produto *) malloc(ESTOQUE_MAX_SIZE*sizeof(Produto));
+Produto* estoque_busca_codigo (Estoque *estoque, int codigo) {
+    int i;
 
-    for (i = k = 0; i < estoque->qtd_produtos - 1; i++) {
+    for (i = 0; i < estoque->qtd_produtos - 1; i++) {
         if (estoque->produtos[i].codigo == codigo)
-            resultados[k++] = estoque->produtos[i];
+            return &estoque->produtos[i];
     }
 
-   return k;
+   return NULL;
 }
 
 int estoque_busca_fabricante (Estoque *estoque, char* fabricante, Produto *resultados) {
@@ -154,16 +153,14 @@ void estoque_baixo (Estoque *estoque, int qtd) {
 }
 
 void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd) {
+    Produto *produto = NULL;
 
-    int results;
-    Produto *produtos = NULL;
+    produto = estoque_busca_codigo (estoque, codigo);
 
-    results = estoque_busca_codigo(estoque, codigo, produtos);
+    assert (produto != NULL);
 
-    assert (results > 0);
-
-    produtos[0].quantidade += qtd;
-    produtos[0].validade = validade;
+    produto[0].quantidade += qtd;
+    produto[0].validade = validade;
 }
 
 

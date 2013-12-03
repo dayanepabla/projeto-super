@@ -43,11 +43,8 @@ Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto);
  * Busca um produto no estoque pelo código.
  *
  * Obs.: Assume que o campo código é único.
- * Retorna a quantidade de produtos encontrados. O ponteiro resultados,
- * aponta para os resultados da busca ou é NULL caso a busca não
- * retorne resultados.
  */
-int estoque_busca_codigo (Estoque *estoque, int codigo, Produto *resultados);
+Produto* estoque_busca_codigo (Estoque *estoque, int codigo);
 
 /*
  * Busca um produto no estoque, por nome do fabricante.
