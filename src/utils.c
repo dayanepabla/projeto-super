@@ -31,7 +31,7 @@ void hr () {
 
 void tabela_produto () {
     hr ();
-    printf("| Nome          | Categoria      | Validade    |Loc.  | Qtd.  | Preço   |\n");
+    printf("| Cod. | Nome     | Categoria    | Validade    |Loc.  | Qtd.  | Preço   |\n");
     hr ();
 }
 

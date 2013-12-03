@@ -39,12 +39,12 @@ int carrinho_vazio (Carrinho *carrinho);
 /*
  * Adiciona um produto ao carrinho.
  */
-void carrinho_add_produto (Carrinho *carrinho, Produto *prod);
+void carrinho_add_produto (Carrinho *carrinho, Produto *prod, int qtd);
 
 /*
  * Remove o produto indicado pelo inteiro 'indice'.
  */
-void carrinho_rm_produto (Carrinho *carrinho, int indice);
+void carrinho_rm_produto (Carrinho *carrinho, int codigo, int qtd);
 
 /*
  * Lista os produtos do carrinho de compras.
@@ -55,5 +55,15 @@ void carrinho_listar (Carrinho *carrinho);
  * Retorna o subtotal dos produtos que estão no carrinho de compras.
  */
 float carrinho_subtotal (Carrinho *carrinho);
+
+/*
+ * Retorna o valor total do carrinho.
+ */
+float carrinho_total (Carrinho *carrinho);
+
+/*
+ * Busca um produto no carrinho, pelo código.
+ */
+Produto* carrinho_busca_codigo (Carrinho *carrinho, int codigo);
 
 #endif

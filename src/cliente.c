@@ -88,7 +88,10 @@ void cliente_carrinho_listar (Carrinho* carrinho) {
     limpar_terminal ();
     cabecalho ("Produtos do seu carrinho");
 
-    carrinho_listar (carrinho);
+    if (carrinho_vazio (carrinho))
+        printf("O carrinho de compras está vazio!\n");
+    else
+        carrinho_listar (carrinho);
 
     aguarde ();
 }
@@ -106,8 +109,8 @@ void cliente_carrinho_add (Estoque* estoque, Carrinho* carrinho) {
     printf ("Quantos itens deseja adicionar: ");
     scanf ("%i", &qtd);
 
-    // produto = estoque_busca_codigo (estoque, codigo);
-    // carrinho_add_produto (carrinho, produto);
+    produto = estoque_busca_codigo (estoque, codigo);
+    carrinho_add_produto (carrinho, produto, qtd);
 
     aguarde ();
 }

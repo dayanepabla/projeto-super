@@ -52,8 +52,9 @@ int produto_salvar (Produto *prod, FILE *bd) {
 void produto_listar (Produto *prod) {
     assert (prod != NULL);
 
-    // printf("| Nome          | Categoria      | Validade    |Loc.  | Qtd.  | Preço   |\n");
-    printf("| %s  | %s | %i/%i/%i | %i-%i| %i | %f |\n",
-        prod->nome, prod->categoria, prod->validade->dia, prod->validade->mes, prod->validade->ano,
-        prod->corredor, prod->prateleira, prod->quantidade, prod->preco);                                                      ;
+    // printf("| Código | Nome          | Categoria      | Validade    |Loc.  | Qtd.  | Preço   |\n");
+    printf("| %i  | %s  | %s | %i/%i/%i | %i-%i| %i | %f |\n",
+        prod->codigo, prod->nome, prod->categoria, prod->validade->dia,
+        prod->validade->mes, prod->validade->ano, prod->corredor, prod->prateleira,
+        prod->quantidade, prod->preco);                                                      ;
 }
