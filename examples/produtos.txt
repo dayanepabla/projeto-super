@@ -1,0 +1,95 @@
+[produto]
+nome: Sabão em po OMO
+categoria: Limpeza
+codigo: 1200
+preco: 12.32
+quantidade: 12
+fabricante: Unilever
+descricao: Omo multiacao, 1kg
+validade: 2013/12/30
+corredor: 1
+prateleira: 2
+
+[produto]
+nome: Amaciante de roupas
+categoria: Limpeza
+codigo: 1201
+preco: 16.90
+quantidade: 14
+fabricante: Fofo
+descricao: Amaciante de roupas, 5kg
+validade: 2014/04/03
+corredor: 1
+prateleira: 2
+
+[produto]
+nome: Impressora
+categoria: Eletronico
+codigo: 1500
+preco: 179.00
+quantidade: 14
+fabricante: HP
+descricao: Impressora Deskjet CH34OC Preta
+validade: 0000/00/00
+corredor: 1
+prateleira: 1
+
+[produto]
+nome: Celular
+categoria: Eletronico
+codigo: 1501
+preco: 1499.00
+quantidade: 40
+fabricante: Samsung
+descricao:Galaxy S III Branco
+validade: 0000/00/00
+corredor: 1
+prateleira: 1
+
+[produto]
+nome: Arroz
+categoria: Alimento não perecível
+codigo: 1300
+preco: 11.96
+quantidade: 20
+fabricante: Camil
+descricao: Arroz Parboilizado, 5Kg
+validade: 2014/02/03
+corredor: 2
+prateleira: 1
+
+[produto]
+nome: Feijao
+categoria: Alimento não perecível
+codigo: 1301
+preco: 4.92
+quantidade: 30
+fabricante: Qualita
+descricao: Feijao preto, tipo 1 , 1Kg
+validade: 2014/05/03
+corredor: 2
+prateleira: 1
+
+[produto]
+nome: Chester
+categoria: Alimento perecível
+codigo: 1400
+preco: 65.85
+quantidade: 10
+fabricante: Perdigão
+descricao: Chester Desossado Congelado, 2.8kg
+validade: 2014/05/03
+corredor: 2
+prateleira: 2
+
+[produto]
+nome: Blanquet de Peru
+categoria: Alimento perecível
+codigo: 1401
+preco: 7.40
+quantidade: 10
+fabricante: Sadia
+descricao: Blanquet de peru light fatiado, bandeja 150g
+validade: 2013/12/09
+corredor: 2
+prateleira: 2
