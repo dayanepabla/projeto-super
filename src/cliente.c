@@ -127,6 +127,8 @@ void cliente_carrinho_rm (Carrinho *carrinho) {
     printf ("Quantos itens deseja remover: ");
     scanf ("%i", &qtd);
 
+    carrinho_rm_produto (carrinho, codigo, qtd);
+
     aguarde ();
 }
 
