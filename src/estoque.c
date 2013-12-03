@@ -29,13 +29,11 @@ Estoque* estoque_novo_de_arquivo (FILE *bd) {
 
     novo_estoque = estoque_novo (0, NULL);
 
-    while (!feof (bd)) {
+    while (getline(&header,&len, bd) != -1 && !feof(bd)) {
         float preco;
         Data* validade;
         char nome[100], categoria[100], fabricante[100], descricao[100];
         int ano, mes, dia, corredor, prateleira, codigo, quantidade;
-
-        getline(&header,&len, bd);
 
         if (strlen (header) == 0 || strcmp(header, "[produto]") == 0)
             continue;
@@ -144,14 +142,16 @@ int estoque_salvar (Estoque *estoque, FILE *bd) {
     return 1;
 }
 
-void estoque_baixo (Estoque *estoque, int qtd) {
+int estoque_baixo (Estoque *estoque, int qtd) {
 
-    int i;
+    int i, k;
 
-    for (i = 0; i < estoque->qtd_produtos - 1; i++){
+    for (i = k = 0; i < estoque->qtd_produtos - 1; i++){
         if (estoque->produtos[i].quantidade <= qtd)
-            produto_listar(&estoque->produtos[i]);
+            k++;
     }
+
+    return k;
 }
 
 void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd) {
@@ -166,11 +166,17 @@ void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd) {
 }
 
 
-// void estoque_validade (Estoque *estoque, Data *data) {
-//     int i;
+void estoque_validade (Estoque *estoque, Data *data) {
+    // int i, k;
 
-//     for (i = 0; i < estoque->qtd_produtos; i++){
-//         if (estoque->produtos[i].validade <= data)
-//             produto_listar(&estoque->produtos[i]);
-//     }
-// }
+    // for (i = k = 0; i < estoque->qtd_produtos - 1; i++){
+    //     int dia, mes, ano;
+
+    //     dia = estoque->produtos[i].validade.dia;
+    //     mes = estoque->produtos[i].validade.mes;
+    //     ano = estoque->produtos[i].validade.ano;
+
+    //     if (ano <= data.ano || (ano == data.ano && mes <= data.mes))
+    //         k++;
+    // }
+}

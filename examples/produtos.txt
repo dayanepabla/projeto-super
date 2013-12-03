@@ -1,23 +1,23 @@
 [produto]
-nome: Sabão em po OMO
+nome: Sabao em po Omo
 categoria: Limpeza
 codigo: 1200
 preco: 12.32
 quantidade: 12
 fabricante: Unilever
-descricao: Omo multiacao, 1kg
+descricao: Sabao Omo
 validade: 2013/12/30
 corredor: 1
 prateleira: 2
 
 [produto]
-nome: Amaciante de roupas
+nome: Amaciante
 categoria: Limpeza
 codigo: 1201
 preco: 16.90
 quantidade: 14
 fabricante: Fofo
-descricao: Amaciante de roupas, 5kg
+descricao: Amaciante
 validade: 2014/04/03
 corredor: 1
 prateleira: 2
@@ -29,7 +29,7 @@ codigo: 1500
 preco: 179.00
 quantidade: 14
 fabricante: HP
-descricao: Impressora Deskjet CH34OC Preta
+descricao: Impressora Deskjet
 validade: 0000/00/00
 corredor: 1
 prateleira: 1
@@ -41,14 +41,14 @@ codigo: 1501
 preco: 1499.00
 quantidade: 40
 fabricante: Samsung
-descricao:Galaxy S III Branco
+descricao:GalaxyS
 validade: 0000/00/00
 corredor: 1
 prateleira: 1
 
 [produto]
 nome: Arroz
-categoria: Alimento não perecível
+categoria: Alimento nao perecivel
 codigo: 1300
 preco: 11.96
 quantidade: 20
@@ -60,7 +60,7 @@ prateleira: 1
 
 [produto]
 nome: Feijao
-categoria: Alimento não perecível
+categoria: Alimento nao perecível
 codigo: 1301
 preco: 4.92
 quantidade: 30
@@ -72,11 +72,11 @@ prateleira: 1
 
 [produto]
 nome: Chester
-categoria: Alimento perecível
+categoria: Alimento perecivel
 codigo: 1400
 preco: 65.85
 quantidade: 10
-fabricante: Perdigão
+fabricante: Perdigao
 descricao: Chester Desossado Congelado, 2.8kg
 validade: 2014/05/03
 corredor: 2
@@ -84,7 +84,7 @@ prateleira: 2
 
 [produto]
 nome: Blanquet de Peru
-categoria: Alimento perecível
+categoria: Alimento perecivel
 codigo: 1401
 preco: 7.40
 quantidade: 10

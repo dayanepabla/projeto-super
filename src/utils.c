@@ -16,7 +16,16 @@ void cabecalho (char *tela) {
 }
 
 void rodape () {
-    printf("\n\nUse Control<C> para encerrar a qualquer momento.\n");
+    // Alertas.
+    printf("\n\n");
+    hr ();
+    printf("\t\t\t\tAVISOS\t\t\t\n");
+    hr ();
+    printf("  %i produto(s) próximo(s) do vencimento.\n", 0);
+    printf("  %i produto(s) com estoque abaixo de 10.\n", estoque_baixo (estoque, 10));
+    hr ();
+
+    printf("\nUse Control<C> para encerrar a qualquer momento.\n");
     printf("Sua opção: ");
 }
 
