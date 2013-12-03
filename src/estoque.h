@@ -57,6 +57,11 @@ void estoque_busca_fabricante (Estoque *estoque, char* fabricante);
 void estoque_add_produto (Estoque *estoque, Produto *produto);
 
 /*
+ * Remove um produto do estoque.
+ */
+void estoque_rm_produto (Estoque *estoque, Produto *produto);
+
+/*
  * Salva produtos do estoque no banco de dados.
  */
 void estoque_listar (Estoque *estoque);
@@ -80,8 +85,8 @@ int estoque_baixo (Estoque *estoque, int qtd);
 void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd);
 
 /*
- * Lista produtos com a data de validade próxima.
+ * Conta os produtos com a data de validade próxima.
  */
-void estoque_validade (Estoque *estoque, Data *data);
+int estoque_validade (Estoque *estoque, Data *data);
 
 #endif

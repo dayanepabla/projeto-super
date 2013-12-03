@@ -66,7 +66,7 @@ int estoque_cheio (Estoque *estoque) {
 Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
     int i;
 
-    for (i = 0; i < estoque->qtd_produtos - 1; i++) {
+    for (i = 0; i < estoque->qtd_produtos; i++) {
         if (strcmp(estoque->produtos[i].nome, nome_produto) == 0)
             return &estoque->produtos[i];
     }
@@ -79,7 +79,7 @@ void estoque_lista_categoria (Estoque* estoque, char *categoria_produto) {
 
     tabela_produto ();
 
-    for (i = 0; i < estoque->qtd_produtos - 1; i++) {
+    for (i = 0; i < estoque->qtd_produtos; i++) {
         if (strcmp(estoque->produtos[i].categoria, categoria_produto) == 0)
             produto_listar (&estoque->produtos[i]);
     }
@@ -90,7 +90,7 @@ void estoque_lista_categoria (Estoque* estoque, char *categoria_produto) {
 Produto* estoque_busca_codigo (Estoque *estoque, int codigo) {
     int i;
 
-    for (i = 0; i < estoque->qtd_produtos - 1; i++) {
+    for (i = 0; i < estoque->qtd_produtos; i++) {
         if (estoque->produtos[i].codigo == codigo)
             return &estoque->produtos[i];
     }
@@ -103,7 +103,7 @@ void estoque_busca_fabricante (Estoque *estoque, char* fabricante) {
 
     tabela_produto ();
 
-    for (i = k = 0; i < estoque->qtd_produtos - 1; i++) {
+    for (i = k = 0; i < estoque->qtd_produtos; i++) {
         if (strcmp(estoque->produtos[i].fabricante, fabricante) == 0)
             produto_listar (&estoque->produtos[i]);
     }
@@ -114,6 +114,21 @@ void estoque_busca_fabricante (Estoque *estoque, char* fabricante) {
 void estoque_add_produto (Estoque *estoque, Produto *produto) {
     estoque->produtos[estoque->qtd_produtos] = *produto;
     estoque->qtd_produtos++;
+}
+
+void estoque_rm_produto (Estoque *estoque, Produto *produto) {
+    int i;
+
+    assert (produto != NULL);
+
+    for (i = 0; i < estoque->qtd_produtos; ++i) {
+        if (estoque->produtos[i].codigo == produto->codigo) {
+            estoque->qtd_produtos--;
+            pswap (&estoque->produtos[i], produto);
+
+            return;
+        }
+    }
 }
 
 void estoque_listar (Estoque *estoque){
@@ -146,7 +161,7 @@ int estoque_baixo (Estoque *estoque, int qtd) {
 
     int i, k;
 
-    for (i = k = 0; i < estoque->qtd_produtos - 1; i++){
+    for (i = k = 0; i < estoque->qtd_produtos; i++){
         if (estoque->produtos[i].quantidade <= qtd)
             k++;
     }
@@ -166,17 +181,21 @@ void estoque_repor (Estoque *estoque, int codigo, Data *validade, int qtd) {
 }
 
 
-void estoque_validade (Estoque *estoque, Data *data) {
-    // int i, k;
+int estoque_validade (Estoque *estoque, Data *data) {
+    int i, k;
 
-    // for (i = k = 0; i < estoque->qtd_produtos - 1; i++){
-    //     int dia, mes, ano;
+    for (i = k = 0; i < estoque->qtd_produtos - 1; i++){
+        int mes, ano;
 
-    //     dia = estoque->produtos[i].validade.dia;
-    //     mes = estoque->produtos[i].validade.mes;
-    //     ano = estoque->produtos[i].validade.ano;
+        mes = estoque->produtos[i].validade->mes;
+        ano = estoque->produtos[i].validade->ano;
 
-    //     if (ano <= data.ano || (ano == data.ano && mes <= data.mes))
-    //         k++;
-    // }
+        if (ano <= data->ano) {
+            if (mes >= data->mes + 1) {
+                k++;
+            }
+        }
+    }
+
+    return k;
 }

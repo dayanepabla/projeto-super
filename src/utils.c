@@ -2,7 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "globals.h"
+#include "data.h"
 
 
 void cabecalho (char *tela) {
@@ -16,12 +18,25 @@ void cabecalho (char *tela) {
 }
 
 void rodape () {
+    Data *data_atual;
+    int ano, mes, dia;
+    struct tm * local;
+    time_t t;
+
+    t = time(NULL);
+    local = localtime (& t);
+    dia = local->tm_mday;
+    mes = local->tm_mon + 1;
+    ano = local->tm_year + 1900;
+
+    data_atual = data_novo(ano, mes, dia);
+
     // Alertas.
     printf("\n\n");
     hr ();
     printf("\t\t\t\tAVISOS\t\t\t\n");
     hr ();
-    printf("  %i produto(s) próximo(s) do vencimento.\n", 0);
+    printf("  %i produto(s) próximo(s) do vencimento.\n", estoque_validade (estoque, data_atual));
     printf("  %i produto(s) com estoque abaixo de 10.\n", estoque_baixo (estoque, 10));
     hr ();
 

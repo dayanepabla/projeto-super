@@ -1,4 +1,5 @@
 #include "funcionario.h"
+#include <string.h>
 #include "utils.h"
 #include "filtros.h"
 
@@ -59,41 +60,40 @@ void funcionario_busca_nome (Estoque *estoque) {
 }
 
 void funcionario_busca_codigo (Estoque *estoque) {
-    Produto *produto;
     int codigo;
+    Produto *produto;
 
     limpar_terminal ();
     cabecalho ("Buscar produto por código");
 
     printf("Digite o código do produto: ");
     scanf (" %i", &codigo);
+    printf("\n");
 
-/*    produto = estoque_busca_codigo (estoque, codigo);
+    produto = estoque_busca_codigo (estoque, codigo);
 
     if (produto == NULL)
         printf("\nNenhum produto encontrado!\n");
-    else
+    else {
+        tabela_produto ();
         produto_listar (produto);
-*/
+        hr ();
+    }
+
     aguarde ();
 }
 
 void funcionario_busca_fabricante (Estoque *estoque) {
-    Produto *produto;
-    char *fabricante = NULL;
+    char fabricante[100];
 
     limpar_terminal ();
     cabecalho ("Buscar produto por fabricante");
 
     printf("Digite o nome do fabricante do produto: ");
     scanf (" %s", fabricante);
+    printf("\n");
 
-/*    produto = estoque_busca_fabricante (estoque, fabricante);
-
-    if (produto == NULL)
-        printf("\nNenhum produto encontrado!\n");
-    else
-        produto_listar (produto);*/
+    estoque_busca_fabricante (estoque, fabricante);
 
     aguarde ();
 }
@@ -129,14 +129,32 @@ void funcionario_listar_quantidade (Estoque *estoque) {
 }
 
 void funcionario_produto_rm (Estoque *estoque) {
-    Produto *produto;
     int codigo;
+    char confirmacao[5];
+    Produto *produto;
 
     limpar_terminal ();
     cabecalho ("Remover produto do estoque");
 
     printf("Digite o código do produto: ");
     scanf ("%i", &codigo);
+    printf("\n");
+
+    produto = estoque_busca_codigo (estoque, codigo);
+
+    if (produto == NULL)
+        return;
+
+    // Exibe o produto antes da remoção.
+    tabela_produto (produto);
+    produto_listar (produto);
+    hr ();
+
+    printf("\nTem certeza que deseja remover este produto? (Sim/Nao) ");
+    scanf(" %s", confirmacao);
+
+    if (strcmp (confirmacao, "Sim") == 0)
+        estoque_rm_produto (estoque, produto);
 
     aguarde ();
 }
@@ -144,7 +162,6 @@ void funcionario_produto_rm (Estoque *estoque) {
 void funcionario_estoque_repor (Estoque *estoque) {
     int qtd, codigo;
     Data *validade;
-    Produto *produto;
 
     limpar_terminal ();
     cabecalho ("Repor produto no estoque");

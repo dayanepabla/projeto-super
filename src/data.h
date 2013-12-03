@@ -17,6 +17,6 @@ Data* data_novo(int ano, int mes, int dia);
 /*
  * Retorna um objeto representando a data atual.
  */
-//Data* data_atual();
+Data* data_atual();
 
 #endif
