@@ -65,7 +65,7 @@ void funcionario_busca_codigo (Estoque *estoque) {
     cabecalho ("Buscar produto por código");
 
     printf("Digite o código do produto: ");
-    scanf (" %i\n", &codigo);
+    scanf (" %i", &codigo);
 
 /*    produto = estoque_busca_codigo (estoque, codigo);
 
@@ -84,8 +84,8 @@ void funcionario_busca_fabricante (Estoque *estoque) {
     limpar_terminal ();
     cabecalho ("Buscar produto por fabricante");
 
-    printf("Digite o nome do fabricante do produto: \n");
-    scanf (" %s\n", fabricante);
+    printf("Digite o nome do fabricante do produto: ");
+    scanf (" %s", fabricante);
 
 /*    produto = estoque_busca_fabricante (estoque, fabricante);
 
@@ -134,7 +134,7 @@ void funcionario_produto_rm (Estoque *estoque) {
     limpar_terminal ();
     cabecalho ("Remover produto do estoque");
 
-    printf("Digite o código do produto: \n");
+    printf("Digite o código do produto: ");
     scanf ("%i", &codigo);
 
     aguarde ();

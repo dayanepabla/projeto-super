@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include "utils.h"
 
 
 Estoque* estoque_novo (int qtd_produtos, Produto *produtos) {
@@ -120,14 +121,13 @@ void estoque_listar (Estoque *estoque){
 
     int i;
 
-    printf("+-----------------------------------------------------------------------+\n");
-    printf("| Nome          | Categoria      | Validade    |Loc.  | Qtd.  | Preço   |\n");
+    tabela_produto ();
 
     for (i = 0; i < estoque->qtd_produtos; i++) {
        produto_listar (&estoque->produtos[i]);
     }
 
-    printf("+-----------------------------------------------------------------------+\n");
+    hr ();
 }
 
 int estoque_salvar (Estoque *estoque, FILE *bd) {
