@@ -54,6 +54,7 @@ void funcionario_busca_nome (Estoque *estoque) {
         produto_listar (produto);
         hr ();
     }
+
     aguarde ();
 }
 

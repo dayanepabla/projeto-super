@@ -32,20 +32,24 @@ int cliente_menu () {
 
 void cliente_busca_nome (Estoque* estoque) {
     Produto *produto;
-    char *nome = NULL;
+    char nome[100];
 
     limpar_terminal ();
     cabecalho ("Buscar produto por nome");
 
     printf ("Digite o nome do produto: ");
-    scanf (" %s\n", nome);
+    scanf (" %s", nome);
+    printf("\n");
 
-/*    produto = cliente_busca_nome(estoque, nome);
+    produto = estoque_busca_nome (estoque, nome);
 
     if (produto == NULL)
-        printf("\nNenhum produto encontrado!\n");
-    else
-        produto_listar (produto);*/
+        printf("\nNenhum produto chamado %s encontrado!\n", nome);
+    else {
+        tabela_produto ();
+        produto_listar (produto);
+        hr ();
+    }
 
     aguarde ();
 }
