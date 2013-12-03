@@ -50,4 +50,9 @@ Produto *ler_produto ();
  */
 void pswap (Produto *prod1, Produto *prod2);
 
+/*
+ * Lista todos os produtos apontados por produtos.
+ */
+void listar_varios_produtos (Produto *produtos, int qtd_produtos);
+
 #endif

@@ -109,3 +109,10 @@ void pswap (Produto *prod1, Produto *prod2) {
     // Finaliza o swap copiando de aux para prod2.
     memcpy(prod2, aux, psize);
 }
+
+void listar_varios_produtos (Produto *produtos, int qtd_produtos) {
+    int i;
+
+    for (i = 0; i < qtd_produtos - 1; ++i)
+        produto_listar (&produtos[i]);
+}

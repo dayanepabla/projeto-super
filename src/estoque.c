@@ -76,15 +76,17 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto) {
     return NULL;
 }
 
-Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto) {
+void estoque_lista_categoria (Estoque* estoque, char *categoria_produto) {
     int i;
 
+    tabela_produto ();
+
     for (i = 0; i < estoque->qtd_produtos - 1; i++) {
-        if (estoque->produtos[i].categoria == categoria_produto)
-            return &estoque->produtos[i];
+        if (strcmp(estoque->produtos[i].categoria, categoria_produto) == 0)
+            produto_listar (&estoque->produtos[i]);
     }
 
-    return NULL;
+    hr ();
 }
 
 Produto* estoque_busca_codigo (Estoque *estoque, int codigo) {
@@ -98,17 +100,17 @@ Produto* estoque_busca_codigo (Estoque *estoque, int codigo) {
    return NULL;
 }
 
-int estoque_busca_fabricante (Estoque *estoque, char* fabricante, Produto *resultados) {
+void estoque_busca_fabricante (Estoque *estoque, char* fabricante) {
     int i, k;
 
-    resultados = (Produto *) malloc(ESTOQUE_MAX_SIZE*sizeof(Produto));
+    tabela_produto ();
 
     for (i = k = 0; i < estoque->qtd_produtos - 1; i++) {
-        if (estoque->produtos[i].fabricante == fabricante)
-            resultados[k++] = estoque->produtos[i];
+        if (strcmp(estoque->produtos[i].fabricante, fabricante) == 0)
+            produto_listar (&estoque->produtos[i]);
     }
 
-    return k;
+    hr ();
 }
 
 void estoque_add_produto (Estoque *estoque, Produto *produto) {

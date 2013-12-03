@@ -37,7 +37,7 @@ Produto* estoque_busca_nome (Estoque* estoque, char *nome_produto);
 /*
  * Lista produtos por categoria.
  */
-Produto* estoque_lista_categoria (Estoque* estoque, char *categoria_produto);
+void estoque_lista_categoria (Estoque* estoque, char *categoria_produto);
 
 /*
  * Busca um produto no estoque pelo código.
@@ -49,7 +49,7 @@ Produto* estoque_busca_codigo (Estoque *estoque, int codigo);
 /*
  * Busca um produto no estoque, por nome do fabricante.
  */
-int estoque_busca_fabricante (Estoque *estoque, char* fabricante, Produto *resultados);
+void estoque_busca_fabricante (Estoque *estoque, char* fabricante);
 
 /*
  * Adiciona um novo produto ao estoque.

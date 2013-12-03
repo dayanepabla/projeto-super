@@ -55,41 +55,31 @@ void cliente_busca_nome (Estoque* estoque) {
 }
 
 void cliente_busca_fabricante (Estoque *estoque) {
-    Produto *produto;
-    char *fabricante = NULL;
+    char fabricante[100];
 
     limpar_terminal ();
     cabecalho ("Buscar produto por fabricante");
 
-    printf("Digite o nome do fabricante do produto: \n");
-    scanf (" %s\n", fabricante);
+    printf("Digite o nome do fabricante do produto: ");
+    scanf (" %s", fabricante);
+    printf("\n");
 
-/*    produto = cliente_busca_fabricante (estoque, fabricante);
-
-    if (produto == NULL)
-        printf("\nNenhum produto encontrado!\n");
-    else
-        produto_listar (produto);*/
+    estoque_busca_fabricante (estoque, fabricante);
 
     aguarde ();
 }
 
 void cliente_busca_categoria (Estoque* estoque) {
-    Produto *produto;
-    char *categoria = NULL;
+    char categoria[100];
 
     limpar_terminal ();
     cabecalho ("Buscar produto por categoria");
 
-    printf("Digite o nome da categoria do produto: \n");
-    scanf (" %s\n", categoria);
+    printf("Digite o nome da categoria do produto: ");
+    scanf (" %s", categoria);
+    printf("\n");
 
-/*    produto = cliente_busca_fabricante (estoque, fabricante);
-
-    if (produto == NULL)
-        printf("\nNenhum produto encontrado!\n");
-    else
-        produto_listar (produto);*/
+    estoque_lista_categoria (estoque, categoria);
 
     aguarde ();
 }
